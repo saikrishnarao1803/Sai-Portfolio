@@ -3,46 +3,48 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Skills — Sai Krishna Portfolio</title>
+  <title>Skills — Sai Krishna Rao</title>
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="../index.html">← Sai Krishna Portfolio</a>
+      <a class="brand" href="../index.html">Sai Krishna Portfolio</a>
       <nav class="nav">
+        <a href="../index.html#skills-preview">Home</a>
         <a href="../index.html#experience">Experience</a>
-        <a href="certifications.html">Certifications</a>
-        <a href="interests.html">Interests</a>
         <a href="contact.html" class="nav-cta">Contact</a>
-        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">☾</button>
       </nav>
     </div>
   </header>
 
-  <main class="section">
-    <div class="container">
-      <h3>Skills (click to see where & why I used it)</h3>
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2>Skills</h2>
+        <p class="muted">Detailed skills, real-world usage, and the impact of my work.</p>
 
-      <div class="grid grid-3" style="margin-top:14px">
-        <button class="skill-card" data-skill="sql"><h4>SQL</h4><p>Analytics + tuning</p></button>
-        <button class="skill-card" data-skill="python"><h4>Python ETL</h4><p>Ingestion + validation</p></button>
-        <button class="skill-card" data-skill="cloud"><h4>Azure / AWS</h4><p>ADF/Blob • Glue/S3</p></button>
-        <button class="skill-card" data-skill="powerbi"><h4>Power BI</h4><p>KPI dashboards</p></button>
-        <button class="skill-card" data-skill="redis"><h4>Redis</h4><p>Caching</p></button>
-        <button class="skill-card" data-skill="langgraph"><h4>LangGraph</h4><p>AI insights</p></button>
-      </div>
-
-      <div class="modal" id="skillModal" aria-hidden="true">
-        <div class="modal-card">
-          <button class="modal-close" id="closeSkillModal" aria-label="Close">✕</button>
-          <h4 id="modalTitle">Skill</h4>
-          <p id="modalBody" class="muted"></p>
-          <div class="modal-impact" id="modalImpact"></div>
+        <div class="grid grid-3 skills-grid" style="margin-top:14px">
+          <button class="skill-card" data-skill="sql"><h4>SQL</h4><p>Analytics, transformations & performance tuning</p></button>
+          <button class="skill-card" data-skill="python"><h4>Python ETL</h4><p>Ingest, clean, validate & publish data</p></button>
+          <button class="skill-card" data-skill="cloud"><h4>Azure / AWS</h4><p>ADF, Blob, Glue, S3</p></button>
+          <button class="skill-card" data-skill="powerbi"><h4>Power BI</h4><p>Model-ready datasets & dashboards</p></button>
+          <button class="skill-card" data-skill="redis"><h4>Redis</h4><p>Cache & latency reduction</p></button>
+          <button class="skill-card" data-skill="langgraph"><h4>LangGraph</h4><p>Structured AI insights</p></button>
         </div>
       </div>
-    </div>
+    </section>
   </main>
+
+  <!-- Reuse the same modal so the script can open it -->
+  <div class="modal" id="skillModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-card" role="document">
+      <button class="modal-close" id="closeSkillModal" aria-label="Close">✕</button>
+      <h3 id="modalTitle">Skill</h3>
+      <div id="modalBody" style="margin-top:8px"></div>
+      <div id="modalImpact" class="modal-impact"></div>
+    </div>
+  </div>
 
   <script src="../script.js"></script>
 </body>
