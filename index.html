@@ -3,280 +3,253 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sai Krishna Rao — Data Engineer Portfolio</title>
-  <meta name="description" content="Portfolio of Sai Krishna Rao, Data Engineer — SQL, Python ETL, Azure/AWS, Power BI." />
+  <title>Sai Krishna Portfolio</title>
+  <meta name="description" content="Sai Krishna Rao — Data Engineer Portfolio" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav">
-        <a class="brand" href="#top">Sai Krishna Rao</a>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-          <button id="themeToggle" class="btn btn-ghost" aria-label="Toggle theme">☾</button>
-        </div>
-      </nav>
 
-      <section class="hero" id="top">
-        <div class="hero-text">
-          <h1>Data Engineer</h1>
-          <p class="subtitle">
+<body>
+  <!-- Top Nav -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <button class="brand" id="brandBtn" aria-label="Open intro">
+        Sai Krishna Portfolio
+      </button>
+
+      <nav class="nav">
+        <a href="index.html#skills-preview">Skills</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="Pages/certifications.html">Certifications</a>
+        <a href="Pages/interests.html">Interests</a>
+        <a href="Pages/contact.html" class="nav-cta">Contact</a>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Intro Overlay (on click brand) -->
+  <div class="overlay" id="introOverlay" aria-hidden="true">
+    <div class="overlay-card">
+      <button class="overlay-close" id="closeIntro" aria-label="Close">✕</button>
+
+      <div class="intro-grid">
+        <div class="intro-pic-wrap">
+          <!-- Put your LinkedIn profile photo here -->
+          <img src="assets/profile.jpg" alt="Sai Krishna Rao" class="intro-pic" />
+        </div>
+
+        <div class="intro-text">
+          <h1 class="intro-name">Sai Krishna Rao Polasani</h1>
+          <p class="intro-role">Data Engineer</p>
+
+          <div class="intro-contact">
+            <a href="mailto:saikrishnarao1803@gmail.com">saikrishnarao1803@gmail.com</a>
+            <span>•</span>
+            <a href="tel:+13092093166">(309) 209-3166</a>
+            <span>•</span>
+            <span>Peoria, IL</span>
+          </div>
+
+          <p class="intro-summary">
             I build reliable data pipelines, optimize SQL performance, and deliver analytics-ready datasets for reporting and business insights.
           </p>
 
-          <div class="cta-row">
-            <a class="btn" href="#projects">View Projects</a>
-            <a class="btn btn-ghost" href="#contact">Contact</a>
+          <div class="intro-actions">
+            <a class="btn" href="index.html#experience" id="learnMoreBtn">To learn more ↓</a>
+            <a class="btn ghost" href="Pages/contact.html">Hire / Contact</a>
           </div>
 
-          <div class="quick-facts">
-            <span>📍 Peoria, IL (Open to US roles)</span>
-            <span>📞 <a href="tel:+13092093166">(309) 209-3166</a></span>
-            <span>✉️ <a href="mailto:saikrishnarao1803@gmail.com">saikrishnarao1803@gmail.com</a></span>
+          <div class="social-row">
+            <a class="pill" href="https://www.linkedin.com/in/saikrishnarao-polasani" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="pill" href="https://github.com/saikrishnarao1803" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="kicker">Open to Data Engineering roles</div>
+          <h2 class="hero-title">
+            Data Engineer who converts raw data into trusted insights.
+          </h2>
+          <p class="hero-sub">
+            Python ETL • SQL Analytics • Azure/AWS • Power BI • Data Quality • Performance Optimization
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn" href="index.html#skills-preview">Explore Skills</a>
+            <a class="btn ghost" href="Pages/contact.html">Contact</a>
           </div>
         </div>
 
         <div class="hero-card">
           <div class="card">
-            <div class="card-badge">Highlights</div>
-            <ul>
-              <li>Python ETL pipelines for enterprise reporting</li>
-              <li>SQL analytics (joins, aggregations, window functions)</li>
-              <li>Cloud: Azure Data Factory / Blob, AWS Glue / S3</li>
-              <li>Power BI datasets & KPI reporting</li>
-              <li>Redis caching + performance optimization</li>
+            <div class="badge">What I deliver</div>
+            <ul class="bullets">
+              <li>ETL pipelines with validations and monitoring</li>
+              <li>SQL transformations + query optimization</li>
+              <li>Curated datasets for KPIs and dashboards</li>
+              <li>Stakeholder-ready documentation + impact</li>
             </ul>
           </div>
         </div>
-      </section>
-    </div>
-  </header>
+      </div>
 
-  <main>
-    <section class="section" id="about">
+      <div class="scroll-hint">
+        <a href="#skills-preview" class="scroll-link">To learn more ↓</a>
+      </div>
+    </section>
+
+    <!-- SKILLS PREVIEW -->
+    <section class="section" id="skills-preview">
       <div class="container">
-        <h2>About</h2>
-        <p>
-          I’m a Senior Data Engineer with 5+ years of experience across SQL analytics, Python-based ETL, cloud data services, and BI reporting.
-          I focus on data quality, performance optimization, and creating business-ready datasets for stakeholders.
-        </p>
+        <div class="section-head">
+          <h3>Skills I have</h3>
+          <a class="link" href="Pages/skills.html">Open Skills Page →</a>
+        </div>
 
         <div class="grid grid-3">
-          <div class="card">
-            <h3>What I do</h3>
-            <p>Ingestion → Transformation → Validation → Curated datasets → Dashboards/Insights.</p>
-          </div>
-          <div class="card">
-            <h3>How I work</h3>
-            <p>Clean, testable pipelines; strong documentation; stakeholder-friendly communication.</p>
-          </div>
-          <div class="card">
-            <h3>What I’m building next</h3>
-            <p>A small web app for catering order intake + backend processing + database storage (portfolio project).</p>
+          <button class="skill-card" data-skill="sql">
+            <h4>SQL</h4>
+            <p>Analytics, transformations, tuning</p>
+          </button>
+
+          <button class="skill-card" data-skill="python">
+            <h4>Python ETL</h4>
+            <p>Ingestion, cleaning, validation</p>
+          </button>
+
+          <button class="skill-card" data-skill="cloud">
+            <h4>Azure / AWS</h4>
+            <p>ADF, Blob • Glue, S3</p>
+          </button>
+
+          <button class="skill-card" data-skill="powerbi">
+            <h4>Power BI</h4>
+            <p>KPI dashboards and reporting</p>
+          </button>
+
+          <button class="skill-card" data-skill="redis">
+            <h4>Redis</h4>
+            <p>Caching for fast analytics</p>
+          </button>
+
+          <button class="skill-card" data-skill="langgraph">
+            <h4>LangGraph</h4>
+            <p>Structured AI insights workflows</p>
+          </button>
+        </div>
+
+        <!-- Skill Popup Modal -->
+        <div class="modal" id="skillModal" aria-hidden="true">
+          <div class="modal-card">
+            <button class="modal-close" id="closeSkillModal" aria-label="Close">✕</button>
+            <h4 id="modalTitle">Skill</h4>
+            <p id="modalBody" class="muted"></p>
+
+            <div class="modal-impact" id="modalImpact"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="skills">
-      <div class="container">
-        <h2>Skills</h2>
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>Data & SQL</h3>
-            <ul class="tags">
-              <li>MS SQL</li><li>MySQL</li><li>PostgreSQL</li><li>Oracle</li><li>Snowflake-style DW</li>
-              <li>Window Functions</li><li>Query Optimization</li><li>Data Modeling</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Engineering</h3>
-            <ul class="tags">
-              <li>Python ETL</li><li>Data Validation</li><li>Data Quality Checks</li><li>Batch Processing</li>
-              <li>Redis Caching</li><li>Linux</li><li>Bash</li><li>Agile/Scrum</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Cloud</h3>
-            <ul class="tags">
-              <li>Azure Data Factory (ADF)</li><li>Azure Blob Storage</li>
-              <li>AWS Glue</li><li>Glue Crawlers</li><li>AWS S3</li><li>AWS Lambda</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>BI / Insights</h3>
-            <ul class="tags">
-              <li>Power BI</li><li>KPI Dashboards</li><li>Interactive Reports</li>
-              <li>LangGraph workflows</li><li>Forecasting pipelines</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- EXPERIENCE (Home page) -->
     <section class="section" id="experience">
       <div class="container">
-        <h2>Experience</h2>
+        <h3>Experience</h3>
 
         <div class="timeline">
-          <article class="timeline-item card">
-            <div class="timeline-head">
-              <h3>Data Engineer — Devoir Solutions (Missouri, USA)</h3>
-              <span class="muted">Jul 2025 – Present</span>
+          <article class="xp card">
+            <div class="xp-head">
+              <div>
+                <h4>Data Engineer — Devoir Solutions (USA)</h4>
+                <div class="muted">Jul 2025 – Present</div>
+              </div>
+              <div class="impact-chip">Business impact</div>
             </div>
-            <ul>
-              <li>Built Python ETL pipelines using Azure Data Factory; staged datasets in Azure Blob Storage.</li>
-              <li>Developed and optimized MS SQL transformations (joins, aggregations, window functions).</li>
-              <li>Implemented data quality rules and monitoring to reduce downstream reporting issues.</li>
-              <li>Delivered curated datasets for Power BI dashboards and stakeholder reporting.</li>
+            <ul class="bullets">
+              <li>Built ETL pipelines and curated datasets for stakeholder reporting and KPI tracking.</li>
+              <li>Optimized MS SQL queries to improve reporting performance and reduce data refresh time.</li>
+              <li>Implemented validation checks to improve data quality and reduce downstream issues.</li>
             </ul>
           </article>
 
-          <article class="timeline-item card">
-            <div class="timeline-head">
-              <h3>Data Engineer — Family Express (IN, USA)</h3>
-              <span class="muted">Jan 2025 – Jun 2025</span>
+          <article class="xp card">
+            <div class="xp-head">
+              <div>
+                <h4>Data Engineer — Family Express (USA)</h4>
+                <div class="muted">Jan 2025 – Jun 2025</div>
+              </div>
+              <div class="impact-chip">Business impact</div>
             </div>
-            <ul>
-              <li>Processed large CSV sales datasets via AWS Glue; stored raw/processed data in S3.</li>
-              <li>Created analytical SQL queries for trends, seasonality, and performance insights.</li>
-              <li>Used Redis caching to reduce query latency and improve dashboard response time.</li>
-              <li>Built LangGraph-based workflows to generate structured analytical insights from sales data.</li>
+
+            <!-- Add photos here (download from LinkedIn and put into /assets) -->
+            <div class="photo-row">
+              <img src="assets/fe1.jpg" alt="Family Express work photo 1" />
+              <img src="assets/fe2.jpg" alt="Family Express work photo 2" />
+              <img src="assets/fe3.jpg" alt="Family Express work photo 3" />
+            </div>
+
+            <ul class="bullets">
+              <li>Processed large sales datasets to enable trend and seasonality insights for decision-making.</li>
+              <li>Improved dashboard responsiveness by adding Redis caching for frequently used analytics.</li>
+              <li>Delivered datasets used for KPI dashboards and weekly business review reporting.</li>
+            </ul>
+            <p class="muted small">
+              Note: Replace fe1.jpg / fe2.jpg / fe3.jpg with your real photos from LinkedIn.
+            </p>
+          </article>
+
+          <article class="xp card">
+            <div class="xp-head">
+              <div>
+                <h4>Senior Data Engineer — Capgemini (Client: Hartford)</h4>
+                <div class="muted">Oct 2021 – Dec 2023</div>
+              </div>
+              <div class="impact-chip">Business impact</div>
+            </div>
+            <ul class="bullets">
+              <li>Supported data workflows and reporting pipelines for enterprise business operations.</li>
+              <li>Enhanced SQL performance with tuning and indexing patterns to improve throughput.</li>
+              <li>Improved reliability via validations, reconciliation, RCA, and strong documentation.</li>
             </ul>
           </article>
 
-          <article class="timeline-item card">
-            <div class="timeline-head">
-              <h3>Senior Data Engineer — Capgemini (Client: Hartford Inc, USA)</h3>
-              <span class="muted">Oct 2021 – Dec 2023</span>
+          <article class="xp card">
+            <div class="xp-head">
+              <div>
+                <h4>Data Engineer — Vistex (India)</h4>
+                <div class="muted">Aug 2019 – Sep 2021</div>
+              </div>
+              <div class="impact-chip">Business impact</div>
             </div>
-            <ul>
-              <li>Designed and maintained extraction/transformation pipelines using SQL and backend services.</li>
-              <li>Improved query execution time with performance tuning and indexing strategies.</li>
-              <li>Supported UAT/production pipelines with validation, reconciliation, and RCA; used Splunk for monitoring.</li>
-              <li>Ensured governance/audit/security compliance; maintained data flow documentation.</li>
-            </ul>
-          </article>
-
-          <article class="timeline-item card">
-            <div class="timeline-head">
-              <h3>Data Engineer — Vistex (Hyderabad, India)</h3>
-              <span class="muted">Aug 2019 – Sep 2021</span>
-            </div>
-            <ul>
-              <li>Supported pricing/rebate data pipelines integrated with SAP systems.</li>
-              <li>Built batch workflows for pricing calculations, rebate eligibility, and contract analytics.</li>
-              <li>Implemented validation/normalization checks and optimized batch processing queries.</li>
+            <ul class="bullets">
+              <li>Supported pricing/rebate data workflows integrated with SAP-based processes.</li>
+              <li>Built batch pipelines for pricing calculations, contract analytics, and validations.</li>
+              <li>Optimized batch queries to reduce processing time and improve operational reporting.</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="projects">
-      <div class="container">
-        <h2>Projects</h2>
-        <p class="muted">Add GitHub links as you build them. These cards are ready for you to update.</p>
-
-        <div class="grid grid-3">
-          <article class="card project">
-            <h3>Catering Order Management (In Progress)</h3>
-            <p class="muted">Python backend + DB + simple web UI</p>
-            <ul>
-              <li>Order intake form (web)</li>
-              <li>Store orders in database</li>
-              <li>Admin view + status updates</li>
-              <li>Basic analytics (daily orders, top items)</li>
-            </ul>
-            <div class="project-links">
-              <a class="btn btn-small btn-ghost" href="#" aria-disabled="true">GitHub (coming)</a>
-              <a class="btn btn-small" href="#" aria-disabled="true">Live demo (coming)</a>
-            </div>
-          </article>
-
-          <article class="card project">
-            <h3>Sales Analytics ETL + KPI Reporting</h3>
-            <p class="muted">AWS Glue • S3 • SQL • Power BI</p>
-            <ul>
-              <li>ETL for large CSV sales datasets</li>
-              <li>Curated datasets for KPI dashboards</li>
-              <li>Redis caching for faster analytics</li>
-            </ul>
-            <div class="project-links">
-              <a class="btn btn-small btn-ghost" href="#" aria-disabled="true">GitHub (add link)</a>
-              <a class="btn btn-small" href="#" aria-disabled="true">Case study (add link)</a>
-            </div>
-          </article>
-
-          <article class="card project">
-            <h3>Azure ETL for Procurement Reporting</h3>
-            <p class="muted">ADF • Blob Storage • MS SQL</p>
-            <ul>
-              <li>Ingest → stage → transform → validate</li>
-              <li>SQL optimization (joins, windows)</li>
-              <li>Data quality checks + monitoring</li>
-            </ul>
-            <div class="project-links">
-              <a class="btn btn-small btn-ghost" href="#" aria-disabled="true">GitHub (add link)</a>
-              <a class="btn btn-small" href="#" aria-disabled="true">Write-up (add link)</a>
-            </div>
-          </article>
-        </div>
-
-        <div class="note card">
-          <h3>Want this to look “top”?</h3>
-          <p>
-            Add 2–3 real project repos + 1 case study PDF (screenshots + architecture + results).
-            If you share your GitHub username and 2–3 project details, I can customize this page fully.
-          </p>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="muted">© <span id="year"></span> Sai Krishna Rao • GitHub Pages</div>
+        <div class="footer-links">
+          <a href="Pages/contact.html">Contact</a>
+          <a href="Pages/certifications.html">Certifications</a>
+          <a href="Pages/interests.html">Interests</a>
         </div>
       </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>Reach me</h3>
-            <p><strong>Email:</strong> <a href="mailto:saikrishnarao1803@gmail.com">saikrishnarao1803@gmail.com</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+13092093166">(309) 209-3166</a></p>
-            <p><strong>Location:</strong> Peoria, IL</p>
-            <p class="muted">Tip: Add LinkedIn + GitHub links here once ready.</p>
-          </div>
-
-          <form class="card" id="contactForm">
-            <h3>Quick message</h3>
-            <label>
-              Your name
-              <input type="text" name="name" placeholder="John Doe" required />
-            </label>
-            <label>
-              Your email
-              <input type="email" name="email" placeholder="john@company.com" required />
-            </label>
-            <label>
-              Message
-              <textarea name="message" rows="4" placeholder="Hi Sai, let's connect..." required></textarea>
-            </label>
-            <button class="btn" type="submit">Send (copies to clipboard)</button>
-            <p class="muted small">This is a static site (no backend). Button copies message text so you can paste into email/LinkedIn.</p>
-          </form>
-        </div>
-      </div>
-    </section>
+    </footer>
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p class="muted">© <span id="year"></span> Sai Krishna Rao • Built as a simple static portfolio (GitHub Pages ready).</p>
-    </div>
-  </footer>
 
   <script src="script.js"></script>
 </body>
