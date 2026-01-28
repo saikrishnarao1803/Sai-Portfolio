@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Sai Krishna Portfolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="../index.html">← Sai Krishna Portfolio</a>
+      <nav class="nav">
+        <a href="skills.html">Skills</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="interests.html">Interests</a>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container grid grid-2">
+      <div class="card">
+        <h3>Contact</h3>
+        <p><strong>Email:</strong> <a href="mailto:saikrishnarao1803@gmail.com">saikrishnarao1803@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+13092093166">(309) 209-3166</a></p>
+        <p><strong>LinkedIn:</strong>
+          <a href="https://www.linkedin.com/in/saikrishnarao-polasani" target="_blank" rel="noreferrer">
+            saikrishnarao-polasani
+          </a>
+        </p>
+        <p><strong>GitHub:</strong>
+          <a href="https://github.com/saikrishnarao1803" target="_blank" rel="noreferrer">
+            saikrishnarao1803
+          </a>
+        </p>
+        <p class="muted small">
+          Use the form to send me a message — it will email me directly.
+        </p>
+      </div>
+
+      <form class="card" id="emailForm">
+        <h3>Send a message</h3>
+
+        <label>Your name
+          <input name="from_name" required placeholder="John Doe" />
+        </label>
+
+        <label>Your email
+          <input name="reply_to" type="email" required placeholder="john@company.com" />
+        </label>
+
+        <label>Message
+          <textarea name="message" rows="5" required placeholder="Hi Sai..."></textarea>
+        </label>
+
+        <button class="btn" type="submit">Send message</button>
+        <p class="muted small" id="statusText"></p>
+      </form>
+    </div>
+  </main>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // TODO: Replace these 3 values after you create EmailJS account
+    const EMAILJS_PUBLIC_KEY = "PASTE_PUBLIC_KEY";
+    const EMAILJS_SERVICE_ID = "PASTE_SERVICE_ID";
+    const EMAILJS_TEMPLATE_ID = "PASTE_TEMPLATE_ID";
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    const form = document.getElementById("emailForm");
+    const statusText = document.getElementById("statusText");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      statusText.textContent = "Sending...";
+
+      try {
+        await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
+        statusText.textContent = "✅ Message sent! I’ll get back to you soon.";
+        form.reset();
+      } catch (err) {
+        statusText.textContent = "❌ Failed to send. Please email me directly.";
+      }
+    });
+  </script>
+
+  <script src="../script.js"></script>
+</body>
+</html>
