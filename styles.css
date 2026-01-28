@@ -1,0 +1,146 @@
+/* Simple, clean, GitHub Pages-friendly styles (no frameworks). */
+:root{
+  --bg: #0b0d12;
+  --card: #121727;
+  --text: #e9ecf2;
+  --muted: #a9b0c1;
+  --border: rgba(255,255,255,.08);
+  --btn: #e9ecf2;
+  --btnText:#0b0d12;
+  --shadow: rgba(0,0,0,.35);
+  --radius: 18px;
+}
+
+:root.light{
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #4b5563;
+  --border: rgba(17,24,39,.10);
+  --btn: #111827;
+  --btnText:#ffffff;
+  --shadow: rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+a{color: inherit; text-decoration: none}
+a:hover{opacity:.9; text-decoration: underline}
+
+.container{width:min(1100px, 92%); margin: 0 auto}
+.section{padding: 64px 0}
+h1,h2,h3{margin: 0 0 12px 0; line-height:1.2}
+h1{font-size: clamp(2.0rem, 4vw, 3.2rem)}
+h2{font-size: clamp(1.4rem, 2.4vw, 2.0rem)}
+h3{font-size: 1.1rem}
+
+.muted{color: var(--muted)}
+.small{font-size:.9rem}
+
+.site-header{padding: 20px 0 10px 0}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap: 16px;
+  position: sticky; top:0;
+}
+.brand{font-weight: 700; letter-spacing: .3px}
+.nav-links{display:flex; gap: 14px; align-items:center; flex-wrap: wrap}
+
+.hero{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 28px;
+  padding: 48px 0 24px 0;
+}
+.subtitle{font-size: 1.05rem; color: var(--muted); margin: 8px 0 0 0}
+.quick-facts{display:flex; flex-direction:column; gap: 6px; margin-top: 14px; color: var(--muted)}
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px var(--shadow);
+  padding: 18px;
+}
+
+.card-badge{
+  display:inline-block;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: var(--muted);
+  font-size:.9rem;
+  margin-bottom: 8px;
+}
+
+.grid{display:grid; gap: 18px}
+.grid-2{grid-template-columns: repeat(2, minmax(0,1fr))}
+.grid-3{grid-template-columns: repeat(3, minmax(0,1fr))}
+
+.tags{list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap: 8px}
+.tags li{
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding: 6px 10px;
+  font-size:.92rem;
+  color: var(--muted);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 8px;
+  background: var(--btn);
+  color: var(--btnText);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.btn:hover{text-decoration:none; transform: translateY(-1px)}
+.btn:active{transform: translateY(0px)}
+.btn-ghost{
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-small{padding: 8px 12px; font-size: .92rem}
+
+.cta-row{margin-top: 16px; display:flex; gap: 10px; flex-wrap: wrap}
+
+.timeline{display:grid; gap: 14px}
+.timeline-head{display:flex; align-items:baseline; justify-content:space-between; gap: 10px; flex-wrap: wrap}
+.timeline-item ul{margin: 10px 0 0 18px}
+
+.project ul{margin: 10px 0 0 18px}
+.project-links{display:flex; gap: 10px; margin-top: 12px; flex-wrap: wrap}
+.note{margin-top: 18px}
+
+label{display:block; margin-top: 10px; color: var(--muted)}
+input, textarea{
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+input:focus, textarea:focus{outline: 2px solid rgba(120,140,255,.35); outline-offset: 2px}
+
+.site-footer{padding: 28px 0 44px 0}
+
+@media (max-width: 900px){
+  .hero{grid-template-columns: 1fr; padding-top: 28px}
+  .grid-3{grid-template-columns: 1fr}
+  .grid-2{grid-template-columns: 1fr}
+}
