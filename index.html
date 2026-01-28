@@ -29,8 +29,8 @@
   </header>
 
   <!-- Intro Overlay (on click brand) -->
-  <div class="overlay" id="introOverlay" aria-hidden="true">
-    <div class="overlay-card">
+  <div class="overlay" id="introOverlay" aria-hidden="true" role="dialog" aria-labelledby="introTitle">
+    <div class="overlay-card" role="document">
       <button class="overlay-close" id="closeIntro" aria-label="Close">✕</button>
 
       <div class="intro-grid">
@@ -39,7 +39,7 @@
         </div>
 
         <div class="intro-text">
-          <h1 class="intro-name">Sai Krishna Rao Polasani</h1>
+          <h1 class="intro-name" id="introTitle">Sai Krishna Rao Polasani</h1>
           <p class="intro-role">Data Engineer</p>
 
           <div class="intro-contact">
@@ -65,6 +65,12 @@
           </div>
         </div>
       </div>
+
+      <!-- Learn more indicator -->
+      <div class="intro-learn-more-wrap">
+        <button id="learnMoreBtn" class="learn-more" aria-label="Learn more about skills">To learn more ↓</button>
+      </div>
+
     </div>
   </div>
 
