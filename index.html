@@ -169,6 +169,17 @@
               <span class="timeline-date">July 2025 – Present</span>
               <span class="timeline-location">Missouri, USA</span>
             </div>
+            
+            <!-- Architecture Diagrams -->
+            <div class="architecture-diagrams">
+              <div class="architecture-item">
+                <img src="assets/images/architecture/devoir-pipeline.svg" alt="Azure Data Pipeline Architecture" class="architecture-img">
+              </div>
+              <div class="architecture-item">
+                <img src="assets/images/architecture/devoir-dataflow.svg" alt="Data Quality & Optimization Flow" class="architecture-img">
+              </div>
+            </div>
+            
             <ul class="timeline-description">
               <li>Worked as a Data Engineer on enterprise data platforms supporting billing, compensation, and procurement-related reporting.</li>
               <li>Designed and implemented Python-based ETL pipelines using Azure Data Factory (ADF) to ingest data from transactional systems.</li>
@@ -198,6 +209,17 @@
               <span class="timeline-date">Jan 2025 – June 2025</span>
               <span class="timeline-location">IN, USA</span>
             </div>
+            
+            <!-- Architecture Diagrams -->
+            <div class="architecture-diagrams">
+              <div class="architecture-item">
+                <img src="assets/images/architecture/familyexpress-pipeline.svg" alt="AWS Sales Analytics Platform" class="architecture-img">
+              </div>
+              <div class="architecture-item">
+                <img src="assets/images/architecture/familyexpress-llm.svg" alt="LLM Orchestration & Analytics" class="architecture-img">
+              </div>
+            </div>
+            
             <ul class="timeline-description">
               <li>Worked closely with backend and analytics teams on a sales and supply analytics platform for fuel and inside-store performance.</li>
               <li>Built Python-based ETL pipelines using AWS Glue to process large CSV sales datasets into analytics-ready formats.</li>
@@ -227,6 +249,17 @@
               <span class="timeline-date">Oct 2021 – Dec 2023</span>
               <span class="timeline-location">USA</span>
             </div>
+            
+            <!-- Architecture Diagrams -->
+            <div class="architecture-diagrams">
+              <div class="architecture-item">
+                <img src="assets/images/architecture/capgemini-pipeline.svg" alt="Insurance Data Pipeline" class="architecture-img">
+              </div>
+              <div class="architecture-item">
+                <img src="assets/images/architecture/capgemini-governance.svg" alt="Data Governance & Compliance" class="architecture-img">
+              </div>
+            </div>
+            
             <ul class="timeline-description">
               <li>Worked as a Senior Data Engineer on enterprise insurance platforms processing large volumes of policy and transactional data.</li>
               <li>Designed and maintained data extraction and transformation pipelines using SQL and backend services.</li>
@@ -256,6 +289,17 @@
               <span class="timeline-date">Aug 2019 – Sept 2021</span>
               <span class="timeline-location">Hyderabad, India</span>
             </div>
+            
+            <!-- Architecture Diagrams -->
+            <div class="architecture-diagrams">
+              <div class="architecture-item">
+                <img src="assets/images/architecture/vistex-platform.svg" alt="SAP Integration & Pricing Platform" class="architecture-img">
+              </div>
+              <div class="architecture-item">
+                <img src="assets/images/architecture/vistex-workflow.svg" alt="Product Development Lifecycle" class="architecture-img">
+              </div>
+            </div>
+            
             <ul class="timeline-description">
               <li>Worked as a Data Engineer on a product-based pricing and rebate management platform used by enterprise customers.</li>
               <li>Supported core product data pipelines handling pricing, rebate, and procurement-related transactional data integrated with SAP systems.</li>
@@ -331,24 +375,29 @@
           </div>
         </article>
 
-        <!-- Project Card 3 - TODO -->
+        <!-- Project Card 3 - Mom's Catering -->
         <article class="project-card">
           <div class="project-image">
-            <img src="assets/images/projects/placeholder3.svg" alt="Project 3">
+            <img src="assets/images/projects/moms-catering.svg" alt="Mom's Catering Web Application">
           </div>
           <div class="project-content">
-            <h3 class="project-title">Project Title 3</h3>
+            <h3 class="project-title">Mom's Catering Web Application</h3>
             <p class="project-description">
-              <!-- TODO: Add project description -->
-              Add your project description here.
+              A heartfelt project currently in the design phase - building a modern web application 
+              to showcase and manage my mother's catering services. This platform will feature 
+              menu management, order tracking, customer testimonials, and an intuitive booking system. 
+              The goal is to help grow her business by providing a professional online presence 
+              that reflects the quality and love she puts into every dish.
             </p>
             <div class="project-tags">
-              <span class="project-tag">AWS</span>
-              <span class="project-tag">ETL</span>
+              <span class="project-tag">React</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">Design Phase</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link">View Code</a>
-              <a href="#" class="project-link">Live Demo</a>
+              <span class="project-link project-link-disabled">In Design</span>
+              <span class="project-link project-link-disabled">Coming Soon</span>
             </div>
           </div>
         </article>
@@ -451,9 +500,79 @@
             </div>
           </div>
         </div>
+        
+        <!-- Send Message Button -->
+        <div class="contact-action">
+          <button id="openMessageDialog" class="btn btn-primary">
+            💬 Send Me a Message
+          </button>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Message Dialog Modal -->
+  <div id="messageDialog" class="modal" role="dialog" aria-labelledby="messageDialogTitle" aria-hidden="true">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="messageDialogTitle" class="modal-title">Send Me a Message</h2>
+        <button class="modal-close" id="closeMessageDialog" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="messageForm" class="message-form">
+          <div class="form-group">
+            <label for="senderName" class="form-label">Your Name *</label>
+            <input 
+              type="text" 
+              id="senderName" 
+              name="senderName" 
+              class="form-input" 
+              required 
+              placeholder="John Doe"
+              aria-required="true"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="linkedinUsername" class="form-label">LinkedIn Username *</label>
+            <input 
+              type="text" 
+              id="linkedinUsername" 
+              name="linkedinUsername" 
+              class="form-input" 
+              required 
+              placeholder="john-doe"
+              pattern="[a-zA-Z0-9-]{3,100}"
+              title="LinkedIn username should be 3-100 characters, using only letters, numbers, and hyphens"
+              aria-required="true"
+            >
+            <span class="form-help">Your LinkedIn profile username (e.g., john-doe from linkedin.com/in/john-doe)</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="messageText" class="form-label">Message *</label>
+            <textarea 
+              id="messageText" 
+              name="messageText" 
+              class="form-textarea" 
+              required 
+              rows="6" 
+              placeholder="I'd like to connect with you about..."
+              aria-required="true"
+            ></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="cancelMessage">Cancel</button>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+        </form>
+        
+        <div id="formFeedback" class="form-feedback" role="alert" aria-live="assertive"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0a192f"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="20" fill="#e6f1ff" text-anchor="middle" font-weight="bold">LLM Orchestration & Analytics - Family Express</text>
+  
+  <!-- Data Layer -->
+  <rect x="50" y="80" width="160" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="130" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Validated Sales</text>
+  <text x="130" y="125" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Time-Series Data</text>
+  <text x="130" y="140" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Cleaned & Ready)</text>
+  
+  <!-- LangGraph Layer -->
+  <rect x="260" y="80" width="160" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="340" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">LangGraph</text>
+  <text x="340" y="125" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">LLM Orchestration</text>
+  <text x="340" y="140" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Agent Workflows)</text>
+  
+  <!-- Agent Nodes -->
+  <rect x="470" y="60" width="130" height="50" rx="5" fill="#112240" stroke="#52e5c3" stroke-width="1.5"/>
+  <text x="535" y="82" font-family="Arial, sans-serif" font-size="12" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Insight Agent</text>
+  <text x="535" y="97" font-family="Arial, sans-serif" font-size="10" fill="#8892b0" text-anchor="middle">Generate Insights</text>
+  
+  <rect x="470" y="120" width="130" height="50" rx="5" fill="#112240" stroke="#52e5c3" stroke-width="1.5"/>
+  <text x="535" y="142" font-family="Arial, sans-serif" font-size="12" fill="#e6f1ff" text-anchor="middle" font-weight="bold">KPI Agent</text>
+  <text x="535" y="157" font-family="Arial, sans-serif" font-size="10" fill="#8892b0" text-anchor="middle">Explain Metrics</text>
+  
+  <rect x="630" y="90" width="130" height="50" rx="5" fill="#112240" stroke="#52e5c3" stroke-width="1.5"/>
+  <text x="695" y="112" font-family="Arial, sans-serif" font-size="12" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Summary Agent</text>
+  <text x="695" y="127" font-family="Arial, sans-serif" font-size="10" fill="#8892b0" text-anchor="middle">Business Summary</text>
+  
+  <!-- Forecasting Layer -->
+  <rect x="130" y="240" width="160" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="210" y="265" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Forecasting</text>
+  <text x="210" y="285" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Pipeline Support</text>
+  <text x="210" y="300" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Time-Series Ready)</text>
+  
+  <!-- Dashboard Integration -->
+  <rect x="340" y="240" width="160" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="420" y="265" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Analytics UI</text>
+  <text x="420" y="285" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Power BI + AI</text>
+  <text x="420" y="300" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Enhanced Insights)</text>
+  
+  <!-- Stakeholder Output -->
+  <rect x="550" y="240" width="160" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="630" y="265" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Stakeholders</text>
+  <text x="630" y="285" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Business Impact</text>
+  <text x="630" y="300" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Decision Making)</text>
+  
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64ffda" />
+    </marker>
+  </defs>
+  
+  <line x1="210" y1="115" x2="255" y2="115" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow3)"/>
+  <line x1="420" y1="105" x2="465" y2="85" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow3)"/>
+  <line x1="420" y1="125" x2="465" y2="145" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow3)"/>
+  <line x1="600" y1="115" x2="625" y2="115" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow3)"/>
+  <line x1="130" y1="150" x2="210" y2="235" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow3)"/>
+  <line x1="290" y1="275" x2="335" y2="275" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow3)"/>
+  <line x1="500" y1="275" x2="545" y2="275" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow3)"/>
+  <line x1="695" y1="140" x2="630" y2="235" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow3)"/>
+  
+  <!-- Features Box -->
+  <rect x="30" y="340" width="740" height="45" rx="5" fill="#112240" stroke="#52e5c3" stroke-width="1"/>
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="12" fill="#64ffda" text-anchor="middle" font-weight="bold">AI-Powered Features:</text>
+  <text x="400" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">Multi-Step Workflows • Structured Insights • KPI Explanations • Business Summaries</text>
+</svg>
