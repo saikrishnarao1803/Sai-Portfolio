@@ -1,135 +1,389 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sai Krishna Portfolio</title>
-  <meta name="description" content="Sai Krishna Rao — Data Engineer Portfolio" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sai Krishna Rao Polasani - Data Engineer Portfolio. Building reliable data pipelines and delivering analytics-ready datasets.">
+  <title>Sai Krishna Rao - Data Engineer Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <!-- Top Nav -->
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <button class="brand" id="brandBtn" aria-label="Open intro">
-        Sai Krishna Portfolio
+  <!-- Header / Navigation -->
+  <header class="header">
+    <nav class="nav-container">
+      <div class="nav-brand">
+        <a href="#hero">Sai Krishna Rao</a>
+      </div>
+      
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger"></span>
       </button>
-
-      <nav class="nav">
-        <a href="index.html#skills-preview">Skills</a>
-        <a href="index.html#experience">Experience</a>
-        <a href="Pages/certifications.html">Certifications</a>
-        <a href="Pages/interests.html">Interests</a>
-        <a href="Pages/contact.html" class="nav-cta">Contact</a>
-        <a href="/resume.pdf" class="nav-cta">Resume</a>
-        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">☾</button>
-      </nav>
-    </div>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link nav-link-cta">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Intro Overlay (on click brand) -->
-  <div class="overlay" id="introOverlay" aria-hidden="true" role="dialog" aria-labelledby="introTitle">
-    <div class="overlay-card" role="document">
-      <button class="overlay-close" id="closeIntro" aria-label="Close">✕</button>
-
-      <div class="intro-grid">
-        <div class="intro-pic-wrap">
-          <img src="assets/profile.jpg" alt="Sai Krishna Rao" class="intro-pic" />
-        </div>
-
-        <div class="intro-text">
-          <h1 class="intro-name" id="introTitle">Sai Krishna Rao Polasani</h1>
-          <p class="intro-role">Data Engineer</p>
-
-          <div class="intro-contact">
-            <a href="mailto:saikrishnarao1803@gmail.com">saikrishnarao1803@gmail.com</a>
-            <span>•</span>
-            <a href="tel:+13092093166">(309) 209-3166</a>
-            <span>•</span>
-            <span>Peoria, IL</span>
-          </div>
-
-          <p class="intro-summary">
-            I build reliable data pipelines, optimize SQL performance, and deliver analytics-ready datasets for reporting and business insights.
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="hero-greeting">Hello, I'm</p>
+          <h1 class="hero-title">Sai Krishna Rao Polasani</h1>
+          <p class="hero-subtitle">Data Engineer</p>
+          <p class="hero-description">
+            I build reliable data pipelines, optimize SQL performance, and deliver 
+            analytics-ready datasets for reporting and business insights.
           </p>
-
-          <div class="intro-actions">
-            <a class="btn btn-accent" href="/resume.pdf" target="_blank">Download Resume</a>
-            <a class="btn ghost" href="Pages/contact.html">Hire / Contact</a>
+          <div class="hero-cta">
+            <a href="assets/resume/SaiKrishna_Resume.docx" class="btn btn-primary" download>
+              Download Resume
+            </a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
           </div>
-
-          <div class="social-row">
-            <a class="pill" href="https://www.linkedin.com/in/saikrishnarao-polasani" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="pill" href="https://github.com/saikrishnarao1803" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+        <div class="hero-image">
+          <div class="image-wrapper">
+            <img src="assets/images/profile.jpg" alt="Sai Krishna Rao Polasani" class="profile-img">
           </div>
         </div>
       </div>
-
-      <!-- Learn more indicator -->
-      <div class="intro-learn-more-wrap">
-        <button id="learnMoreBtn" class="learn-more" aria-label="Learn more about skills">To learn more ↓</button>
-      </div>
-
     </div>
-  </div>
+  </section>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-grid">
-          <div class="hero-photo">
-            <img src="assets/profile.jpg" alt="Sai Krishna Rao" />
-          </div>
-
-          <div class="hero-content">
-            <div class="kicker">Open to Data Engineering roles</div>
-            <h1 class="hero-title">Sai Krishna Rao — Data Engineer</h1>
-            <p class="hero-lead">I build reliable data pipelines, optimize SQL performance, and deliver analytics-ready datasets for reporting and business insights.</p>
-
-            <div class="hero-actions">
-              <a class="btn btn-accent" href="/resume.pdf" target="_blank">Download Resume</a>
-              <a class="btn ghost" href="Pages/contact.html">Contact</a>
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <!-- TODO: Extract from resume - Add detailed background information -->
+          <p>
+            I'm a passionate Data Engineer with expertise in building scalable data solutions.
+            With a strong foundation in SQL, Python, and cloud technologies, I specialize in 
+            creating efficient ETL pipelines and delivering analytics-ready datasets.
+          </p>
+          <p>
+            <!-- TODO: Add more details about your professional journey, interests, and what drives you -->
+            My experience spans across various industries where I've successfully implemented 
+            data engineering solutions that drive business value and insights.
+          </p>
+          <div class="about-info">
+            <div class="info-item">
+              <span class="info-label">Location:</span>
+              <span class="info-value">Peoria, IL</span>
             </div>
-
-            <div class="muted small" style="margin-top:14px">Available for relocation and remote roles • Peoria, IL</div>
+            <div class="info-item">
+              <span class="info-label">Email:</span>
+              <span class="info-value">
+                <a href="mailto:saikrishnarao1803@gmail.com">saikrishnarao1803@gmail.com</a>
+              </span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Status:</span>
+              <span class="info-value">Open to opportunities</span>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- EXPERIENCE (Home page) -->
-    <section class="section" id="experience">
-      <div class="container">
-        <h3>Experience</h3>
-
-        <div class="timeline">
-          <!-- NOTE: kept your original experience content; replace these sample blocks with your full content as needed -->
-          <article class="xp card">
-            <div class="xp-head">
-              <div>
-                <h4>Senior Data Engineer — Capgemini (Client: Hartford)</h4>
-                <div class="muted">Oct 2021 – Dec 2023</div>
-              </div>
-            </div>
-          </article>
+  <!-- Skills Section -->
+  <section id="skills" class="section skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <!-- TODO: Extract from resume - Categorize and expand skill list -->
+        <div class="skill-category">
+          <h3 class="skill-category-title">Programming & Scripting</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">PySpark</span>
+            <!-- TODO: Add more skills from resume -->
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3 class="skill-category-title">Cloud & Big Data</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Azure Data Factory</span>
+            <span class="skill-tag">AWS Glue</span>
+            <!-- TODO: Add more cloud technologies from resume -->
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3 class="skill-category-title">Databases</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MS SQL Server</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Redis</span>
+            <!-- TODO: Add more databases from resume -->
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3 class="skill-category-title">Tools & Frameworks</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Docker</span>
+            <!-- TODO: Add more tools from resume -->
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div class="muted">© <span id="year"></span> Sai Krishna Rao • GitHub Pages</div>
+  <!-- Experience Section -->
+  <section id="experience" class="section experience">
+    <div class="container">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="timeline">
+        <!-- TODO: Extract full experience details from SaiKrishna_Resume.docx -->
+        <!-- Experience Item 1 -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="timeline-title">Senior Data Engineer</h3>
+              <span class="timeline-company">Capgemini (Client: Hartford)</span>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-date">Oct 2021 – Dec 2023</span>
+              <span class="timeline-location"><!-- TODO: Add location --></span>
+            </div>
+            <ul class="timeline-description">
+              <li><!-- TODO: Extract key achievements and responsibilities from resume --></li>
+              <li>Designed and optimized data pipelines and SQL queries</li>
+              <li>Implemented ETL processes using cloud technologies</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience Item 2 -->
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="timeline-title">Data Engineer</h3>
+              <span class="timeline-company"><!-- TODO: Extract company name from resume --></span>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-date"><!-- TODO: Extract dates from resume --></span>
+            </div>
+            <ul class="timeline-description">
+              <li><!-- TODO: Extract achievements from resume --></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Add more experience items as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        <!-- TODO: Add project introduction -->
+        Here are some of my recent data engineering projects.
+      </p>
+      <div class="projects-grid">
+        <!-- Project Card 1 - TODO -->
+        <article class="project-card">
+          <div class="project-image">
+            <img src="assets/images/projects/placeholder1.svg" alt="Project 1">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Project Title 1</h3>
+            <p class="project-description">
+              <!-- TODO: Add project description, technologies used, and key achievements -->
+              Add your project description here. Include the problem solved, 
+              technologies used, and business impact.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">SQL</span>
+              <!-- TODO: Add relevant technology tags -->
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link"><!-- TODO: Add GitHub link -->View Code</a>
+              <a href="#" class="project-link"><!-- TODO: Add demo link if available -->Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 2 - TODO -->
+        <article class="project-card">
+          <div class="project-image">
+            <img src="assets/images/projects/placeholder2.svg" alt="Project 2">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Project Title 2</h3>
+            <p class="project-description">
+              <!-- TODO: Add project description -->
+              Add your project description here.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Azure</span>
+              <span class="project-tag">PySpark</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Code</a>
+              <a href="#" class="project-link">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project Card 3 - TODO -->
+        <article class="project-card">
+          <div class="project-image">
+            <img src="assets/images/projects/placeholder3.svg" alt="Project 3">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Project Title 3</h3>
+            <p class="project-description">
+              <!-- TODO: Add project description -->
+              Add your project description here.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">AWS</span>
+              <span class="project-tag">ETL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">View Code</a>
+              <a href="#" class="project-link">Live Demo</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="section education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="education-grid">
+        <!-- Education Item 1 -->
+        <div class="education-card">
+          <div class="education-icon">🎓</div>
+          <div class="education-content">
+            <h3 class="education-degree">
+              <!-- TODO: Extract degree details from SaiKrishna_Resume.docx -->
+              Master's / Bachelor's Degree
+            </h3>
+            <p class="education-school">
+              <!-- TODO: Extract university name from resume -->
+              University Name
+            </p>
+            <p class="education-date">
+              <!-- TODO: Extract graduation year from resume -->
+              Year
+            </p>
+            <p class="education-details">
+              <!-- TODO: Add relevant coursework, achievements, or GPA if applicable -->
+            </p>
+          </div>
+        </div>
+
+        <!-- Add more education items if needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">
+        I'm currently open to new opportunities. Whether you have a question or just want to say hi, 
+        feel free to reach out!
+      </p>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <a href="mailto:saikrishnarao1803@gmail.com">saikrishnarao1803@gmail.com</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">💼</div>
+            <div class="contact-details">
+              <h3>LinkedIn</h3>
+              <a href="https://www.linkedin.com/in/saikrishnarao-polasani" target="_blank" rel="noopener noreferrer">
+                linkedin.com/in/saikrishnarao-polasani
+              </a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">🐙</div>
+            <div class="contact-details">
+              <h3>GitHub</h3>
+              <a href="https://github.com/saikrishnarao1803" target="_blank" rel="noopener noreferrer">
+                github.com/saikrishnarao1803
+              </a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h3>Location</h3>
+              <p>Peoria, IL</p>
+              <p class="contact-note">Available for relocation and remote roles</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">
+          &copy; <span id="currentYear"></span> Sai Krishna Rao Polasani. All rights reserved.
+        </p>
         <div class="footer-links">
-          <a href="Pages/contact.html">Contact</a>
-          <a href="Pages/certifications.html">Certifications</a>
-          <a href="Pages/interests.html">Interests</a>
+          <a href="https://www.linkedin.com/in/saikrishnarao-polasani" target="_blank" rel="noopener noreferrer" class="footer-link">
+            LinkedIn
+          </a>
+          <a href="https://github.com/saikrishnarao1803" target="_blank" rel="noopener noreferrer" class="footer-link">
+            GitHub
+          </a>
+          <a href="mailto:saikrishnarao1803@gmail.com" class="footer-link">
+            Email
+          </a>
         </div>
       </div>
-    </footer>
-  </main>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

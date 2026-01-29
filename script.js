@@ -1,165 +1,247 @@
-(function(){
-  const root = document.documentElement;
+// Portfolio Interactive Features
+(function() {
+  'use strict';
 
-  // Theme
-  const themeToggle = document.getElementById("themeToggle");
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") root.classList.add("light");
+  // ===========================
+  // Mobile Navigation Toggle
+  // ===========================
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  const navLinks = document.querySelectorAll('.nav-link');
 
-  function setIcon(){
-    const isLight = root.classList.contains("light");
-    if (themeToggle) themeToggle.textContent = isLight ? "☀︎" : "☾";
-  }
-  setIcon();
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      navMenu.classList.toggle('active');
+    });
 
-  themeToggle?.addEventListener("click", () => {
-    root.classList.toggle("light");
-    localStorage.setItem("theme", root.classList.contains("light") ? "light" : "dark");
-    setIcon();
-  });
-
-  // Footer year
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // Intro overlay
-  const brandBtn = document.getElementById("brandBtn");
-  const introOverlay = document.getElementById("introOverlay");
-  const closeIntro = document.getElementById("closeIntro");
-  const introPic = document.querySelector(".intro-pic");
-  const learnMoreBtn = document.getElementById("learnMoreBtn");
-
-  function openIntro(){
-    if (!introOverlay) return;
-    introOverlay.classList.add("show");
-    introOverlay.setAttribute("aria-hidden", "false");
-
-    // retrigger animation on the picture
-    if (introPic) {
-      introPic.classList.remove("animate");
-      void introPic.offsetWidth;
-      introPic.classList.add("animate");
-      introPic.addEventListener("animationend", function cleanup(){
-        introPic.classList.remove("animate");
-        introPic.removeEventListener("animationend", cleanup);
+    // Close mobile menu when clicking a nav link
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
       });
-    }
-  }
-  function closeIntroFn(){
-    introOverlay?.classList.remove("show");
-    introOverlay?.setAttribute("aria-hidden", "true");
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = navMenu.contains(event.target);
+      const isClickOnToggle = navToggle.contains(event.target);
+      
+      if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('active');
+      }
+    });
   }
 
-  brandBtn?.addEventListener("click", openIntro);
-  closeIntro?.addEventListener("click", closeIntroFn);
-  introOverlay?.addEventListener("click", (e) => {
-    if (e.target === introOverlay) closeIntroFn();
+  // ===========================
+  // Smooth Scrolling
+  // ===========================
+  const scrollLinks = document.querySelectorAll('a[href^="#"]');
+  
+  scrollLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      
+      // Only handle internal anchor links
+      if (href !== '#' && href.length > 1) {
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          e.preventDefault();
+          
+          const headerOffset = 80; // Account for fixed header
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
   });
 
-  // Learn more button - scroll to skills-preview
-  learnMoreBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = document.getElementById("skills-preview");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      closeIntroFn();
+  // ===========================
+  // Dynamic Year in Footer
+  // ===========================
+  const yearElement = document.getElementById('currentYear');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+  // ===========================
+  // Header Scroll Effect
+  // ===========================
+  const header = document.querySelector('.header');
+  let lastScrollTop = 0;
+  
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Add shadow to header when scrolled
+    if (scrollTop > 50) {
+      header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
     } else {
-      window.location.href = "index.html#skills-preview";
+      header.style.boxShadow = 'none';
     }
+    
+    lastScrollTop = scrollTop;
   });
 
-  // Skill modal + skill data
-  const skillModal = document.getElementById("skillModal");
-  const closeSkillModal = document.getElementById("closeSkillModal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalBody = document.getElementById("modalBody");
-  const modalImpact = document.getElementById("modalImpact");
-
-  const skillData = {
-    sql: {
-      title: "SQL",
-      body: "I use SQL to design analytics-ready tables, tune complex queries (joins, window functions), and build aggregates for reports.",
-      impact: "Where I used it: Devoir (MS SQL), Family Express (analytics), Capgemini/Vistex. Why: to create KPI datasets and speed up reporting queries; reduced run-time for several reports by rewriting heavy joins and adding targeted indexes."
-    },
-    python: {
-      title: "Python ETL",
-      body: "I build ETL scripts to ingest, clean, validate, and publish curated datasets for reporting and BI.",
-      impact: "Where: Devoir, Family Express. Why: automated ingestion and repeatable transformations, added tests and validation to reduce data incidents."
-    },
-    cloud: {
-      title: "Azure / AWS",
-      body: "Experience with Azure Data Factory & Blob, and AWS Glue & S3 for orchestrating batch ingestion and processing.",
-      impact: "Where: Devoir (ADF), Family Express (Glue). Why: moved jobs to managed cloud services for better scheduling, scaling and monitoring."
-    },
-    powerbi: {
-      title: "Power BI",
-      body: "I prepare model-ready datasets and KPI tables optimized for Power BI dashboards and stakeholder reporting.",
-      impact: "Where: Devoir/Family Express. Why: improved dashboard responsiveness and enabled self-serve reports for business users."
-    },
-    redis: {
-      title: "Redis",
-      body: "I use Redis to cache frequently-used analytics results and reduce latency for dashboards.",
-      impact: "Where: Family Express. Why: lower repeated query load and faster dashboard responses during peak hours."
-    },
-    langgraph: {
-      title: "LangGraph",
-      body: "I built workflows to generate structured AI insights from sales and analytics data.",
-      impact: "Where: Family Express. Why: automated summary insights and structured outputs for reporting and decision-making."
-    }
+  // ===========================
+  // Intersection Observer for Animations
+  // ===========================
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
   };
 
-  document.querySelectorAll(".skill-card").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const key = btn.getAttribute("data-skill");
-      const s = skillData[key] || {title:"Skill", body:"Details coming soon.", impact:""};
-      if (modalTitle) modalTitle.textContent = s.title;
-      if (modalBody) modalBody.textContent = s.body;
-      if (modalImpact) modalImpact.textContent = s.impact;
-      skillModal?.classList.add("show");
-      skillModal?.setAttribute("aria-hidden", "false");
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
     });
+  }, observerOptions);
+
+  // Observe elements for animation
+  const animateElements = document.querySelectorAll(
+    '.skill-category, .timeline-item, .project-card, .education-card, .contact-item'
+  );
+  
+  animateElements.forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(element);
   });
 
-  function closeSkill(){
-    skillModal?.classList.remove("show");
-    skillModal?.setAttribute("aria-hidden", "true");
-  }
+  // Add animation class styles
+  const style = document.createElement('style');
+  style.textContent = `
+    .animate-in {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+  `;
+  document.head.appendChild(style);
 
-  closeSkillModal?.addEventListener("click", closeSkill);
-  skillModal?.addEventListener("click", (e) => {
-    if (e.target === skillModal) closeSkill();
-  });
-
-  // Contact form handling (Formspree XHR submission)
-  const contactForm = document.getElementById('contactForm');
-  const contactSuccess = document.getElementById('contactSuccess');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      const action = contactForm.getAttribute('action');
-      if (!action) return alert('Please configure the form action endpoint.');
-      const data = new FormData(contactForm);
-      fetch(action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          contactForm.reset();
-          if (contactSuccess) contactSuccess.style.display = 'block';
+  // ===========================
+  // Active Navigation Link Highlighting
+  // ===========================
+  const sections = document.querySelectorAll('section[id]');
+  
+  function highlightNavigation() {
+    const scrollY = window.pageYOffset;
+    
+    sections.forEach(section => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 100;
+      const sectionId = section.getAttribute('id');
+      const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+      
+      if (navLink) {
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLink.classList.add('active-link');
         } else {
-          response.json().then(data => {
-            alert(data.error || 'There was an error sending the message.');
-          }).catch(()=> alert('There was an error sending the message.'));
+          navLink.classList.remove('active-link');
         }
-      }).catch(()=> alert('Network error. Please try again later.'));
+      }
     });
   }
+  
+  window.addEventListener('scroll', highlightNavigation);
 
-  // Optional: open intro once on first visit
-  const firstVisit = localStorage.getItem("firstVisitDone");
-  if (!firstVisit) {
-    setTimeout(() => openIntro(), 500);
-    localStorage.setItem("firstVisitDone", "yes");
+  // Add active link styles
+  const activeStyle = document.createElement('style');
+  activeStyle.textContent = `
+    .nav-link.active-link {
+      color: var(--accent-primary);
+    }
+    .nav-link.active-link::after {
+      width: 100%;
+    }
+  `;
+  document.head.appendChild(activeStyle);
+
+  // ===========================
+  // Lazy Loading Images
+  // ===========================
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src || img.src;
+          img.classList.add('loaded');
+          imageObserver.unobserve(img);
+        }
+      });
+    });
+
+    const images = document.querySelectorAll('img[data-src]');
+    images.forEach(img => imageObserver.observe(img));
   }
+
+  // ===========================
+  // Performance: Debounce Scroll Events
+  // ===========================
+  function debounce(func, wait = 10, immediate = true) {
+    let timeout;
+    return function() {
+      const context = this;
+      const args = arguments;
+      const later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      const callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  }
+
+  // Apply debounce to scroll-based functions
+  window.addEventListener('scroll', debounce(highlightNavigation, 20));
+
+  // ===========================
+  // Accessibility: Keyboard Navigation
+  // ===========================
+  // Ensure focus is visible for keyboard users
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      document.body.classList.add('keyboard-nav');
+    }
+  });
+
+  document.addEventListener('mousedown', function() {
+    document.body.classList.remove('keyboard-nav');
+  });
+
+  // Add keyboard navigation styles
+  const keyboardStyle = document.createElement('style');
+  keyboardStyle.textContent = `
+    body:not(.keyboard-nav) *:focus {
+      outline: none;
+    }
+    .keyboard-nav *:focus {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 2px;
+    }
+  `;
+  document.head.appendChild(keyboardStyle);
+
+  // ===========================
+  // Console Easter Egg
+  // ===========================
+  console.log('%c👋 Hello, Developer!', 'color: #64ffda; font-size: 20px; font-weight: bold;');
+  console.log('%cInterested in working together? Reach out at saikrishnarao1803@gmail.com', 'color: #8892b0; font-size: 14px;');
+
 })();
