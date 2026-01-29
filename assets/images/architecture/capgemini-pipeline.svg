@@ -1,69 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
   <!-- Background -->
-  <rect width="800" height="400" fill="#0a192f"/>
+  <rect width="800" height="400" fill="#f8f9fa"/>
   
   <!-- Title -->
-  <text x="400" y="30" font-family="Arial, sans-serif" font-size="20" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Insurance Data Pipeline - Capgemini (Hartford)</text>
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="20" fill="#111827" text-anchor="middle" font-weight="bold">Insurance Data Pipeline - Capgemini (Hartford)</text>
   
   <!-- Policy Systems -->
-  <rect x="50" y="80" width="150" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
-  <text x="125" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Policy Systems</text>
-  <text x="125" y="125" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Transactional Data</text>
-  <text x="125" y="140" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Large Volumes)</text>
+  <rect x="50" y="80" width="150" height="70" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="125" y="105" font-family="Arial, sans-serif" font-size="14" fill="#111827" text-anchor="middle" font-weight="bold">Policy Systems</text>
+  <text x="125" y="125" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Transactional Data</text>
+  <text x="125" y="140" font-family="Arial, sans-serif" font-size="10" fill="#1d4ed8" text-anchor="middle">(Large Volumes)</text>
   
   <!-- Batch Processing -->
-  <rect x="250" y="80" width="150" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
-  <text x="325" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Batch ETL</text>
-  <text x="325" y="125" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">SQL Pipelines</text>
-  <text x="325" y="140" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Backend Services)</text>
+  <rect x="250" y="80" width="150" height="70" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="325" y="105" font-family="Arial, sans-serif" font-size="14" fill="#111827" text-anchor="middle" font-weight="bold">Batch ETL</text>
+  <text x="325" y="125" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">SQL Pipelines</text>
+  <text x="325" y="140" font-family="Arial, sans-serif" font-size="10" fill="#1d4ed8" text-anchor="middle">(Backend Services)</text>
   
   <!-- Data Models -->
-  <rect x="450" y="80" width="150" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
-  <text x="525" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Relational Model</text>
-  <text x="525" y="125" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Normalized Schema</text>
-  <text x="525" y="140" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Optimized Design)</text>
+  <rect x="450" y="80" width="150" height="70" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="525" y="105" font-family="Arial, sans-serif" font-size="14" fill="#111827" text-anchor="middle" font-weight="bold">Relational Model</text>
+  <text x="525" y="125" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Normalized Schema</text>
+  <text x="525" y="140" font-family="Arial, sans-serif" font-size="10" fill="#1d4ed8" text-anchor="middle">(Optimized Design)</text>
   
   <!-- Performance Tuning -->
-  <rect x="630" y="80" width="140" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
-  <text x="700" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Optimization</text>
-  <text x="700" y="125" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Query Tuning</text>
-  <text x="700" y="140" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(20% Faster)</text>
+  <rect x="630" y="80" width="140" height="70" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="700" y="105" font-family="Arial, sans-serif" font-size="14" fill="#111827" text-anchor="middle" font-weight="bold">Optimization</text>
+  <text x="700" y="125" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Query Tuning</text>
+  <text x="700" y="140" font-family="Arial, sans-serif" font-size="10" fill="#1d4ed8" text-anchor="middle">(20% Faster)</text>
   
   <!-- Analytics Layer -->
-  <rect x="150" y="230" width="150" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
-  <text x="225" y="255" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Analytics Layer</text>
-  <text x="225" y="275" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Reporting Views</text>
-  <text x="225" y="290" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Business Logic)</text>
+  <rect x="150" y="230" width="150" height="70" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="225" y="255" font-family="Arial, sans-serif" font-size="14" fill="#111827" text-anchor="middle" font-weight="bold">Analytics Layer</text>
+  <text x="225" y="275" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Reporting Views</text>
+  <text x="225" y="290" font-family="Arial, sans-serif" font-size="10" fill="#1d4ed8" text-anchor="middle">(Business Logic)</text>
   
   <!-- Monitoring -->
-  <rect x="350" y="230" width="150" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
-  <text x="425" y="255" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Monitoring</text>
-  <text x="425" y="275" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Splunk Logs</text>
-  <text x="425" y="290" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Issue Detection)</text>
+  <rect x="350" y="230" width="150" height="70" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="425" y="255" font-family="Arial, sans-serif" font-size="14" fill="#111827" text-anchor="middle" font-weight="bold">Monitoring</text>
+  <text x="425" y="275" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Splunk Logs</text>
+  <text x="425" y="290" font-family="Arial, sans-serif" font-size="10" fill="#1d4ed8" text-anchor="middle">(Issue Detection)</text>
   
   <!-- Business Analytics -->
-  <rect x="550" y="230" width="150" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
-  <text x="625" y="255" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Reports</text>
-  <text x="625" y="275" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Business Insights</text>
-  <text x="625" y="290" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(UAT & Production)</text>
+  <rect x="550" y="230" width="150" height="70" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="625" y="255" font-family="Arial, sans-serif" font-size="14" fill="#111827" text-anchor="middle" font-weight="bold">Reports</text>
+  <text x="625" y="275" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Business Insights</text>
+  <text x="625" y="290" font-family="Arial, sans-serif" font-size="10" fill="#1d4ed8" text-anchor="middle">(UAT & Production)</text>
   
   <!-- Arrows -->
   <defs>
     <marker id="arrow4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#64ffda" />
+      <polygon points="0 0, 10 3, 0 6" fill="#2563eb" />
     </marker>
   </defs>
   
-  <line x1="200" y1="115" x2="245" y2="115" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow4)"/>
-  <line x1="400" y1="115" x2="445" y2="115" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow4)"/>
-  <line x1="600" y1="115" x2="625" y2="115" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow4)"/>
-  <line x1="525" y1="150" x2="225" y2="225" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow4)"/>
-  <line x1="300" y1="265" x2="345" y2="265" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow4)"/>
-  <line x1="500" y1="265" x2="545" y2="265" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow4)"/>
+  <line x1="200" y1="115" x2="245" y2="115" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow4)"/>
+  <line x1="400" y1="115" x2="445" y2="115" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow4)"/>
+  <line x1="600" y1="115" x2="625" y2="115" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow4)"/>
+  <line x1="525" y1="150" x2="225" y2="225" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow4)"/>
+  <line x1="300" y1="265" x2="345" y2="265" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow4)"/>
+  <line x1="500" y1="265" x2="545" y2="265" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow4)"/>
   
   <!-- Features Box -->
-  <rect x="30" y="335" width="740" height="50" rx="5" fill="#112240" stroke="#52e5c3" stroke-width="1"/>
-  <text x="400" y="355" font-family="Arial, sans-serif" font-size="12" fill="#64ffda" text-anchor="middle" font-weight="bold">Enterprise Features:</text>
-  <text x="400" y="370" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">20% Query Performance Gain • Data Governance & Security • Normalized Models</text>
-  <text x="400" y="382" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">Splunk Monitoring • UAT Validation • Agile Delivery</text>
+  <rect x="30" y="335" width="740" height="50" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="1"/>
+  <text x="400" y="355" font-family="Arial, sans-serif" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="bold">Enterprise Features:</text>
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="11" fill="#6b7280" text-anchor="middle">20% Query Performance Gain • Data Governance & Security • Normalized Models</text>
+  <text x="400" y="382" font-family="Arial, sans-serif" font-size="11" fill="#6b7280" text-anchor="middle">Splunk Monitoring • UAT Validation • Agile Delivery</text>
 </svg>
