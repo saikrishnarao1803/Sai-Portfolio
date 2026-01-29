@@ -58,7 +58,7 @@
   <line x1="140" y1="150" x2="210" y2="235" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)"/>
   <line x1="280" y1="270" x2="325" y2="270" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)"/>
   <line x1="470" y1="270" x2="515" y2="270" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)"/>
-  <line x="590" y1="240" x2="720" y2="150" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)" stroke-dasharray="5,5"/>
+  <line x1="590" y1="240" x2="720" y2="150" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)" stroke-dasharray="5,5"/>
   
   <!-- Team Collaboration -->
   <rect x="40" y="340" width="720" height="45" rx="5" fill="#112240" stroke="#52e5c3" stroke-width="1"/>

@@ -730,6 +730,12 @@ ul {
   color: var(--accent-secondary);
 }
 
+.project-link-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* ===========================
    Education Section
    =========================== */

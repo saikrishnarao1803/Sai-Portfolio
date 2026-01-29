@@ -396,8 +396,8 @@
               <span class="project-tag">Design Phase</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link project-link-disabled" style="opacity: 0.5; cursor: not-allowed;">In Design</a>
-              <a href="#" class="project-link project-link-disabled" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</a>
+              <span class="project-link project-link-disabled">In Design</span>
+              <span class="project-link project-link-disabled">Coming Soon</span>
             </div>
           </div>
         </article>
@@ -543,6 +543,8 @@
               class="form-input" 
               required 
               placeholder="john-doe"
+              pattern="[a-zA-Z0-9-]{3,100}"
+              title="LinkedIn username should be 3-100 characters, using only letters, numbers, and hyphens"
               aria-required="true"
             >
             <span class="form-help">Your LinkedIn profile username (e.g., john-doe from linkedin.com/in/john-doe)</span>
@@ -567,7 +569,7 @@
           </div>
         </form>
         
-        <div id="formFeedback" class="form-feedback" role="alert" aria-live="polite"></div>
+        <div id="formFeedback" class="form-feedback" role="alert" aria-live="assertive"></div>
       </div>
     </div>
   </div>

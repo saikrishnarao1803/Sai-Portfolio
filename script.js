@@ -330,21 +330,41 @@
         return;
       }
 
+      // Validate LinkedIn username format (alphanumeric and hyphens only)
+      const linkedinUsernamePattern = /^[a-zA-Z0-9-]{3,100}$/;
+      if (!linkedinUsernamePattern.test(formData.linkedinUsername)) {
+        showFeedback('error', 'LinkedIn username should be 3-100 characters, using only letters, numbers, and hyphens.');
+        return;
+      }
+
+      // Sanitize input to prevent email header injection
+      const sanitize = (str) => str.replace(/[\r\n]/g, ' ').trim();
+      const sanitizedData = {
+        name: sanitize(formData.name),
+        linkedinUsername: sanitize(formData.linkedinUsername),
+        message: sanitize(formData.message)
+      };
+
       // Create mailto link with pre-filled content
       // Note: Direct LinkedIn messaging API requires OAuth authentication which is not feasible
-      // for a static portfolio. Using email as the delivery method.
-      const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+      // for a static portfolio. Using email as the delivery method provides a functional alternative.
+      const subject = encodeURIComponent(`Portfolio Contact from ${sanitizedData.name}`);
       const body = encodeURIComponent(
-        `Name: ${formData.name}\n` +
-        `LinkedIn: https://www.linkedin.com/in/${formData.linkedinUsername}\n\n` +
-        `Message:\n${formData.message}\n\n` +
+        `Name: ${sanitizedData.name}\n` +
+        `LinkedIn: https://www.linkedin.com/in/${sanitizedData.linkedinUsername}\n\n` +
+        `Message:\n${sanitizedData.message}\n\n` +
         `---\nSent from portfolio contact form`
       );
       
       const mailtoLink = `mailto:saikrishnarao1803@gmail.com?subject=${subject}&body=${body}`;
       
-      // Open email client
-      window.location.href = mailtoLink;
+      // Open email client using a temporary anchor element for better cross-browser compatibility
+      const tempLink = document.createElement('a');
+      tempLink.href = mailtoLink;
+      tempLink.style.display = 'none';
+      document.body.appendChild(tempLink);
+      tempLink.click();
+      document.body.removeChild(tempLink);
       
       // Show success message
       showFeedback('success', 
@@ -353,10 +373,10 @@
         'If your email client didn\'t open, please email me directly at saikrishnarao1803@gmail.com'
       );
       
-      // Reset form after a delay
+      // Reset form after success message is shown (after 10 seconds to match success message duration)
       setTimeout(() => {
         messageForm.reset();
-      }, 1000);
+      }, 10000);
     });
   }
 
