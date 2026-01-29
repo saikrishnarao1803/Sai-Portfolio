@@ -1,165 +1,231 @@
-(function(){
-  const root = document.documentElement;
+// Modern Portfolio JavaScript
+(function() {
+  'use strict';
 
-  // Theme
-  const themeToggle = document.getElementById("themeToggle");
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") root.classList.add("light");
-
-  function setIcon(){
-    const isLight = root.classList.contains("light");
-    if (themeToggle) themeToggle.textContent = isLight ? "☀︎" : "☾";
-  }
-  setIcon();
-
-  themeToggle?.addEventListener("click", () => {
-    root.classList.toggle("light");
-    localStorage.setItem("theme", root.classList.contains("light") ? "light" : "dark");
-    setIcon();
-  });
-
-  // Footer year
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // Intro overlay
-  const brandBtn = document.getElementById("brandBtn");
-  const introOverlay = document.getElementById("introOverlay");
-  const closeIntro = document.getElementById("closeIntro");
-  const introPic = document.querySelector(".intro-pic");
-  const learnMoreBtn = document.getElementById("learnMoreBtn");
-
-  function openIntro(){
-    if (!introOverlay) return;
-    introOverlay.classList.add("show");
-    introOverlay.setAttribute("aria-hidden", "false");
-
-    // retrigger animation on the picture
-    if (introPic) {
-      introPic.classList.remove("animate");
-      void introPic.offsetWidth;
-      introPic.classList.add("animate");
-      introPic.addEventListener("animationend", function cleanup(){
-        introPic.classList.remove("animate");
-        introPic.removeEventListener("animationend", cleanup);
-      });
-    }
-  }
-  function closeIntroFn(){
-    introOverlay?.classList.remove("show");
-    introOverlay?.setAttribute("aria-hidden", "true");
+  // ===== Current Year in Footer =====
+  const yearElement = document.getElementById('currentYear');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
   }
 
-  brandBtn?.addEventListener("click", openIntro);
-  closeIntro?.addEventListener("click", closeIntroFn);
-  introOverlay?.addEventListener("click", (e) => {
-    if (e.target === introOverlay) closeIntroFn();
-  });
-
-  // Learn more button - scroll to skills-preview
-  learnMoreBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = document.getElementById("skills-preview");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      closeIntroFn();
-    } else {
-      window.location.href = "index.html#skills-preview";
-    }
-  });
-
-  // Skill modal + skill data
-  const skillModal = document.getElementById("skillModal");
-  const closeSkillModal = document.getElementById("closeSkillModal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalBody = document.getElementById("modalBody");
-  const modalImpact = document.getElementById("modalImpact");
-
-  const skillData = {
-    sql: {
-      title: "SQL",
-      body: "I use SQL to design analytics-ready tables, tune complex queries (joins, window functions), and build aggregates for reports.",
-      impact: "Where I used it: Devoir (MS SQL), Family Express (analytics), Capgemini/Vistex. Why: to create KPI datasets and speed up reporting queries; reduced run-time for several reports by rewriting heavy joins and adding targeted indexes."
-    },
-    python: {
-      title: "Python ETL",
-      body: "I build ETL scripts to ingest, clean, validate, and publish curated datasets for reporting and BI.",
-      impact: "Where: Devoir, Family Express. Why: automated ingestion and repeatable transformations, added tests and validation to reduce data incidents."
-    },
-    cloud: {
-      title: "Azure / AWS",
-      body: "Experience with Azure Data Factory & Blob, and AWS Glue & S3 for orchestrating batch ingestion and processing.",
-      impact: "Where: Devoir (ADF), Family Express (Glue). Why: moved jobs to managed cloud services for better scheduling, scaling and monitoring."
-    },
-    powerbi: {
-      title: "Power BI",
-      body: "I prepare model-ready datasets and KPI tables optimized for Power BI dashboards and stakeholder reporting.",
-      impact: "Where: Devoir/Family Express. Why: improved dashboard responsiveness and enabled self-serve reports for business users."
-    },
-    redis: {
-      title: "Redis",
-      body: "I use Redis to cache frequently-used analytics results and reduce latency for dashboards.",
-      impact: "Where: Family Express. Why: lower repeated query load and faster dashboard responses during peak hours."
-    },
-    langgraph: {
-      title: "LangGraph",
-      body: "I built workflows to generate structured AI insights from sales and analytics data.",
-      impact: "Where: Family Express. Why: automated summary insights and structured outputs for reporting and decision-making."
-    }
-  };
-
-  document.querySelectorAll(".skill-card").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const key = btn.getAttribute("data-skill");
-      const s = skillData[key] || {title:"Skill", body:"Details coming soon.", impact:""};
-      if (modalTitle) modalTitle.textContent = s.title;
-      if (modalBody) modalBody.textContent = s.body;
-      if (modalImpact) modalImpact.textContent = s.impact;
-      skillModal?.classList.add("show");
-      skillModal?.setAttribute("aria-hidden", "false");
+  // ===== Mobile Navigation Toggle =====
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navMenu = document.getElementById('navMenu');
+  
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+      const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', !isExpanded);
+      navMenu.classList.toggle('active');
+      
+      // Animate hamburger icon
+      const hamburger = mobileToggle.querySelector('.hamburger');
+      if (hamburger) {
+        hamburger.style.transform = navMenu.classList.contains('active') 
+          ? 'rotate(45deg)' 
+          : 'rotate(0)';
+      }
     });
-  });
-
-  function closeSkill(){
-    skillModal?.classList.remove("show");
-    skillModal?.setAttribute("aria-hidden", "true");
-  }
-
-  closeSkillModal?.addEventListener("click", closeSkill);
-  skillModal?.addEventListener("click", (e) => {
-    if (e.target === skillModal) closeSkill();
-  });
-
-  // Contact form handling (Formspree XHR submission)
-  const contactForm = document.getElementById('contactForm');
-  const contactSuccess = document.getElementById('contactSuccess');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      const action = contactForm.getAttribute('action');
-      if (!action) return alert('Please configure the form action endpoint.');
-      const data = new FormData(contactForm);
-      fetch(action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          contactForm.reset();
-          if (contactSuccess) contactSuccess.style.display = 'block';
-        } else {
-          response.json().then(data => {
-            alert(data.error || 'There was an error sending the message.');
-          }).catch(()=> alert('There was an error sending the message.'));
+    
+    // Close mobile menu when clicking on a link
+    const navLinks = navMenu.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        const hamburger = mobileToggle.querySelector('.hamburger');
+        if (hamburger) {
+          hamburger.style.transform = 'rotate(0)';
         }
-      }).catch(()=> alert('Network error. Please try again later.'));
+      });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        const hamburger = mobileToggle.querySelector('.hamburger');
+        if (hamburger) {
+          hamburger.style.transform = 'rotate(0)';
+        }
+      }
     });
   }
 
-  // Optional: open intro once on first visit
-  const firstVisit = localStorage.getItem("firstVisitDone");
-  if (!firstVisit) {
-    setTimeout(() => openIntro(), 500);
-    localStorage.setItem("firstVisitDone", "yes");
+  // ===== Smooth Scrolling for Navigation Links =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      
+      // Skip if href is just "#"
+      if (href === '#') {
+        e.preventDefault();
+        return;
+      }
+      
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        e.preventDefault();
+        const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+        const targetPosition = targetElement.offsetTop - navbarHeight - 20;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // ===== Navbar Scroll Effect =====
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+  
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (navbar) {
+      if (currentScroll > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+    
+    lastScroll = currentScroll;
+  });
+
+  // ===== Project Filter (Optional) =====
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  if (filterButtons.length > 0 && projectCards.length > 0) {
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filter = button.getAttribute('data-filter');
+        
+        projectCards.forEach(card => {
+          if (filter === 'all') {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            }, 10);
+          } else {
+            const category = card.getAttribute('data-category');
+            if (category === filter) {
+              card.style.display = 'block';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+              }, 10);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'scale(0.9)';
+              setTimeout(() => {
+                card.style.display = 'none';
+              }, 250);
+            }
+          }
+        });
+      });
+    });
   }
+
+  // ===== Contact Form Handling =====
+  const contactForm = document.getElementById('contactForm');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
+      
+      // TODO: Implement actual form submission
+      // This is a placeholder - integrate with Formspree, EmailJS, or backend API
+      console.log('Form submitted:', data);
+      
+      // Show success message (placeholder)
+      alert('Thank you for your message! This is a demo form. Please integrate with a backend service to enable actual email sending.');
+      
+      // Reset form
+      contactForm.reset();
+    });
+  }
+
+  // ===== Intersection Observer for Animations =====
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+  
+  // Observe elements for fade-in animation
+  document.querySelectorAll('.skill-card, .project-card, .timeline-item, .education-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  // ===== Active Navigation Link Highlighting =====
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  function highlightNavigation() {
+    const scrollPosition = window.scrollY + 100;
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+      
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', highlightNavigation);
+
+  // ===== Keyboard Navigation Support =====
+  document.addEventListener('keydown', (e) => {
+    // Close mobile menu with Escape key
+    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      if (mobileToggle) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        const hamburger = mobileToggle.querySelector('.hamburger');
+        if (hamburger) {
+          hamburger.style.transform = 'rotate(0)';
+        }
+      }
+    }
+  });
+
+  // ===== Console Message =====
+  console.log('%c🚀 Portfolio Site Loaded Successfully!', 'color: #14b8a6; font-size: 16px; font-weight: bold;');
+  console.log('%cBuilt with ❤️ by Sai Krishna Rao', 'color: #a0aec0; font-size: 12px;');
+
 })();

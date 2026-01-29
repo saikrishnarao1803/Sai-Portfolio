@@ -1,0 +1,5 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#1a2332"/>
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="48" fill="#14b8a6" text-anchor="middle" font-weight="bold">Project 1</text>
+  <text x="400" y="340" font-family="Arial, sans-serif" font-size="32" fill="#14b8a6" text-anchor="middle">Placeholder - TODO</text>
+</svg>
