@@ -206,6 +206,10 @@ li {
   color: var(--text-primary);
 }
 
+.nav-link.active {
+  color: var(--accent-primary);
+}
+
 .nav-link::after {
   content: '';
   position: absolute;
@@ -329,7 +333,7 @@ li {
 }
 
 .accent-text {
-  color: var(--accent-primary);
+  color: var(--accent-primary); /* Fallback for browsers that don't support gradients */
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

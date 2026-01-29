@@ -6,6 +6,31 @@
   'use strict';
 
   // ============================================
+  // Utility: Throttle function for performance
+  // ============================================
+  function throttle(func, wait) {
+    let timeout;
+    let lastRan;
+    
+    return function executedFunction(...args) {
+      const context = this;
+      
+      if (!lastRan) {
+        func.apply(context, args);
+        lastRan = Date.now();
+      } else {
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+          if (Date.now() - lastRan >= wait) {
+            func.apply(context, args);
+            lastRan = Date.now();
+          }
+        }, wait - (Date.now() - lastRan));
+      }
+    };
+  }
+
+  // ============================================
   // Mobile Navigation Toggle
   // ============================================
   const navToggle = document.getElementById('navToggle');
@@ -89,93 +114,7 @@
   });
 
   // ============================================
-  // Header Scroll Effect
-  // ============================================
-  const header = document.getElementById('header');
-  let lastScroll = 0;
-
-  window.addEventListener('scroll', function() {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll <= 0) {
-      header.classList.remove('scroll-up');
-      return;
-    }
-    
-    if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
-      // Scrolling down
-      header.classList.remove('scroll-up');
-      header.classList.add('scroll-down');
-    } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
-      // Scrolling up
-      header.classList.remove('scroll-down');
-      header.classList.add('scroll-up');
-    }
-    
-    lastScroll = currentScroll;
-  });
-
-  // ============================================
-  // Project Filter (if needed in future)
-  // ============================================
-  const projectFilters = document.querySelectorAll('[data-filter]');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  projectFilters.forEach(filter => {
-    filter.addEventListener('click', function() {
-      const filterValue = this.getAttribute('data-filter');
-      
-      // Remove active class from all filters
-      projectFilters.forEach(f => f.classList.remove('active'));
-      // Add active class to clicked filter
-      this.classList.add('active');
-      
-      // Filter projects
-      projectCards.forEach(card => {
-        if (filterValue === 'all') {
-          card.style.display = 'block';
-        } else {
-          const projectCategory = card.getAttribute('data-category');
-          if (projectCategory === filterValue) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        }
-      });
-    });
-  });
-
-  // ============================================
-  // Update Current Year in Footer
-  // ============================================
-  const yearElement = document.getElementById('year');
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-
-  // ============================================
-  // Typing Effect for Hero (optional enhancement)
-  // ============================================
-  const heroTitle = document.querySelector('.hero-title');
-  if (heroTitle && heroTitle.hasAttribute('data-typing')) {
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
-    let i = 0;
-    
-    function type() {
-      if (i < text.length) {
-        heroTitle.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, 100);
-      }
-    }
-    
-    type();
-  }
-
-  // ============================================
-  // Active Navigation Link on Scroll
+  // Active Navigation Link on Scroll (Throttled)
   // ============================================
   const sections = document.querySelectorAll('section[id]');
   
@@ -189,26 +128,23 @@
       const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
       
       if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        // Remove active class from all nav links
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
         navLink.classList.add('active');
-      } else if (navLink) {
-        navLink.classList.remove('active');
       }
     });
   }
   
-  window.addEventListener('scroll', highlightNavigation);
+  // Use throttled version for better performance
+  window.addEventListener('scroll', throttle(highlightNavigation, 100));
 
   // ============================================
-  // Prevent transition on window resize
+  // Update Current Year in Footer
   // ============================================
-  let resizeTimer;
-  window.addEventListener('resize', function() {
-    document.body.classList.add('resize-animation-stopper');
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
-      document.body.classList.remove('resize-animation-stopper');
-    }, 400);
-  });
+  const yearElement = document.getElementById('year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
 
   // ============================================
   // Console Message
