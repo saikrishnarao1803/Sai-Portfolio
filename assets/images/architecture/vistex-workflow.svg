@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0a192f"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="20" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Product Development Lifecycle - Vistex</text>
+  
+  <!-- Development Phase -->
+  <rect x="60" y="80" width="160" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="140" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Development</text>
+  <text x="140" y="125" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Feature Building</text>
+  <text x="140" y="140" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Data Logic)</text>
+  
+  <!-- Code Quality -->
+  <rect x="270" y="70" width="140" height="50" rx="5" fill="#112240" stroke="#52e5c3" stroke-width="1.5"/>
+  <text x="340" y="92" font-family="Arial, sans-serif" font-size="13" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Validation</text>
+  <text x="340" y="108" font-family="Arial, sans-serif" font-size="10" fill="#8892b0" text-anchor="middle">Data Quality</text>
+  
+  <rect x="270" y="130" width="140" height="50" rx="5" fill="#112240" stroke="#52e5c3" stroke-width="1.5"/>
+  <text x="340" y="152" font-family="Arial, sans-serif" font-size="13" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Standards</text>
+  <text x="340" y="168" font-family="Arial, sans-serif" font-size="10" fill="#8892b0" text-anchor="middle">Code Quality</text>
+  
+  <!-- QA Testing -->
+  <rect x="460" y="80" width="160" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="540" y="105" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">QA Testing</text>
+  <text x="540" y="125" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Verification</text>
+  <text x="540" y="140" font-family="Arial, sans-serif" font-size="10" fill="#52e5c3" text-anchor="middle">(Test Environments)</text>
+  
+  <!-- Production -->
+  <rect x="670" y="80" width="100" height="70" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="720" y="105" font-family="Arial, sans-serif" font-size="13" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Production</text>
+  <text x="720" y="125" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">Live System</text>
+  
+  <!-- Support Activities -->
+  <rect x="140" y="240" width="140" height="60" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="210" y="265" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Documentation</text>
+  <text x="210" y="285" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">Data Flow Docs</text>
+  
+  <rect x="330" y="240" width="140" height="60" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="400" y="265" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Issue Tracking</text>
+  <text x="400" y="285" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">Root Cause Analysis</text>
+  
+  <rect x="520" y="240" width="140" height="60" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="590" y="265" font-family="Arial, sans-serif" font-size="14" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Collaboration</text>
+  <text x="590" y="285" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">Cross-Team Support</text>
+  
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrow7" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64ffda" />
+    </marker>
+  </defs>
+  
+  <line x1="220" y1="105" x2="265" y2="95" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)"/>
+  <line x1="220" y1="125" x2="265" y2="155" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)"/>
+  <line x1="410" y1="115" x2="455" y2="115" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)"/>
+  <line x1="620" y1="115" x2="665" y2="115" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)"/>
+  <line x1="140" y1="150" x2="210" y2="235" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)"/>
+  <line x1="280" y1="270" x2="325" y2="270" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)"/>
+  <line x1="470" y1="270" x2="515" y2="270" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)"/>
+  <line x="590" y1="240" x2="720" y2="150" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow7)" stroke-dasharray="5,5"/>
+  
+  <!-- Team Collaboration -->
+  <rect x="40" y="340" width="720" height="45" rx="5" fill="#112240" stroke="#52e5c3" stroke-width="1"/>
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="12" fill="#64ffda" text-anchor="middle" font-weight="bold">Team Collaboration:</text>
+  <text x="400" y="375" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">Product Managers • Functional Consultants • QA Teams • Customer Support</text>
+</svg>

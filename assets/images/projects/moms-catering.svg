@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#0a192f"/>
+  
+  <!-- Title -->
+  <text x="300" y="30" font-family="Arial, sans-serif" font-size="22" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Mom's Catering Web Application</text>
+  
+  <!-- Boy character (simple representation) -->
+  <!-- Head -->
+  <circle cx="250" cy="160" r="25" fill="#ccd6f6" stroke="#64ffda" stroke-width="2"/>
+  <!-- Body -->
+  <rect x="235" y="185" width="30" height="50" rx="5" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <!-- Arms -->
+  <rect x="205" y="195" width="30" height="8" rx="4" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <rect x="265" y="195" width="30" height="8" rx="4" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <!-- Legs -->
+  <rect x="238" y="235" width="10" height="30" rx="3" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <rect x="252" y="235" width="10" height="30" rx="3" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  
+  <!-- Gift box -->
+  <rect x="285" y="180" width="30" height="30" rx="3" fill="#64ffda" stroke="#52e5c3" stroke-width="2"/>
+  <line x1="300" y1="180" x2="300" y2="210" stroke="#0a192f" stroke-width="3"/>
+  <line x1="285" y1="195" x2="315" y2="195" stroke="#0a192f" stroke-width="3"/>
+  <!-- Bow on gift -->
+  <circle cx="300" cy="180" r="5" fill="#52e5c3"/>
+  
+  <!-- Arrow indicating gifting -->
+  <defs>
+    <marker id="giftArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64ffda" />
+    </marker>
+  </defs>
+  <line x1="320" y1="195" x2="340" y2="195" stroke="#64ffda" stroke-width="2" marker-end="url(#giftArrow)"/>
+  
+  <!-- Mom character (simple representation) -->
+  <!-- Head -->
+  <circle cx="380" cy="160" r="25" fill="#ccd6f6" stroke="#64ffda" stroke-width="2"/>
+  <!-- Hair/Head decoration -->
+  <path d="M 365 145 Q 380 135 395 145" fill="none" stroke="#64ffda" stroke-width="2"/>
+  <!-- Body (dress shape) -->
+  <path d="M 380 185 L 360 235 L 400 235 Z" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <circle cx="380" cy="185" r="12" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <!-- Arms -->
+  <rect x="350" y="195" width="30" height="8" rx="4" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <rect x="400" y="195" width="30" height="8" rx="4" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  
+  <!-- Heart symbol between them -->
+  <path d="M 315 150 Q 315 140 320 140 Q 325 140 325 145 Q 325 140 330 140 Q 335 140 335 150 Q 335 160 325 170 Q 315 160 315 150 Z" fill="#64ffda" opacity="0.6"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="80" r="3" fill="#52e5c3" opacity="0.5"/>
+  <circle cx="450" cy="100" r="3" fill="#52e5c3" opacity="0.5"/>
+  <circle cx="180" cy="320" r="3" fill="#64ffda" opacity="0.5"/>
+  <circle cx="420" cy="310" r="3" fill="#64ffda" opacity="0.5"/>
+  
+  <!-- Description area -->
+  <rect x="50" y="280" width="500" height="100" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2" opacity="0.9"/>
+  
+  <text x="300" y="305" font-family="Arial, sans-serif" font-size="16" fill="#e6f1ff" text-anchor="middle" font-weight="bold">A Gift of Love Through Technology</text>
+  
+  <text x="300" y="330" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">Designing a modern web application to showcase</text>
+  <text x="300" y="348" font-family="Arial, sans-serif" font-size="12" fill="#8892b0" text-anchor="middle">and manage my mother's catering services.</text>
+  <text x="300" y="366" font-family="Arial, sans-serif" font-size="11" fill="#64ffda" text-anchor="middle">Status: In Design Phase</text>
+</svg>

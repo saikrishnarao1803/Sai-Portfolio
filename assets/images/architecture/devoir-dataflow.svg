@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0a192f"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="20" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Data Quality & Optimization Flow - Devoir Solutions</text>
+  
+  <!-- Data Ingestion Layer -->
+  <rect x="50" y="70" width="200" height="80" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="150" y="95" font-family="Arial, sans-serif" font-size="16" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Data Ingestion</text>
+  <text x="150" y="115" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Transactional Systems</text>
+  <text x="150" y="130" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Real-time Extracts</text>
+  <text x="150" y="145" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Azure Data Factory</text>
+  
+  <!-- Data Quality Layer -->
+  <rect x="300" y="70" width="200" height="80" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="400" y="95" font-family="Arial, sans-serif" font-size="16" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Quality Checks</text>
+  <text x="400" y="115" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Validation Rules</text>
+  <text x="400" y="130" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Data Cleansing</text>
+  <text x="400" y="145" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• 30% Error Reduction</text>
+  
+  <!-- Transformation Layer -->
+  <rect x="550" y="70" width="200" height="80" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="650" y="95" font-family="Arial, sans-serif" font-size="16" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Transformations</text>
+  <text x="650" y="115" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• SQL Optimization</text>
+  <text x="650" y="130" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Joins & Aggregations</text>
+  <text x="650" y="145" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Window Functions</text>
+  
+  <!-- Analytics Layer -->
+  <rect x="175" y="230" width="200" height="80" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="275" y="255" font-family="Arial, sans-serif" font-size="16" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Analytics Ready</text>
+  <text x="275" y="275" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Curated Datasets</text>
+  <text x="275" y="290" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Billing Reports</text>
+  <text x="275" y="305" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Compensation Data</text>
+  
+  <!-- Reporting Layer -->
+  <rect x="425" y="230" width="200" height="80" rx="8" fill="#112240" stroke="#64ffda" stroke-width="2"/>
+  <text x="525" y="255" font-family="Arial, sans-serif" font-size="16" fill="#e6f1ff" text-anchor="middle" font-weight="bold">Business Reporting</text>
+  <text x="525" y="275" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Power BI Dashboards</text>
+  <text x="525" y="290" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Procurement Analytics</text>
+  <text x="525" y="305" font-family="Arial, sans-serif" font-size="11" fill="#8892b0" text-anchor="middle">• Stakeholder Insights</text>
+  
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64ffda" />
+    </marker>
+  </defs>
+  
+  <line x1="250" y1="110" x2="295" y2="110" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="500" y1="110" x2="545" y2="110" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="650" y1="150" x2="275" y2="225" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="375" y1="270" x2="420" y2="270" stroke="#64ffda" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Performance Metrics Box -->
+  <rect x="50" y="350" width="700" height="30" rx="5" fill="#112240" stroke="#52e5c3" stroke-width="1"/>
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="12" fill="#64ffda" text-anchor="middle" font-weight="bold">Performance: 30% Improvement | Data Quality: 30% Fewer Issues | Pipeline Monitoring & Security</text>
+</svg>
