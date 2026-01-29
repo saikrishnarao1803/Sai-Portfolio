@@ -1,165 +1,283 @@
-(function(){
+/**
+ * Sai Krishna Rao - Portfolio JavaScript
+ * Modern interactive features and animations
+ */
+
+(function() {
+  'use strict';
+
+  // ========== Theme Toggle ==========
+  const themeToggle = document.getElementById('themeToggle');
   const root = document.documentElement;
+  const themeIcon = themeToggle?.querySelector('.theme-icon');
 
-  // Theme
-  const themeToggle = document.getElementById("themeToggle");
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") root.classList.add("light");
-
-  function setIcon(){
-    const isLight = root.classList.contains("light");
-    if (themeToggle) themeToggle.textContent = isLight ? "☀︎" : "☾";
+  // Load saved theme
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  if (savedTheme === 'light') {
+    root.classList.add('light');
+    if (themeIcon) themeIcon.textContent = '☀︎';
   }
-  setIcon();
 
-  themeToggle?.addEventListener("click", () => {
-    root.classList.toggle("light");
-    localStorage.setItem("theme", root.classList.contains("light") ? "light" : "dark");
-    setIcon();
+  // Theme toggle handler
+  themeToggle?.addEventListener('click', () => {
+    const isLight = root.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    if (themeIcon) {
+      themeIcon.textContent = isLight ? '☀︎' : '☾';
+    }
   });
 
-  // Footer year
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  // ========== Mobile Navigation ==========
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mainNav = document.getElementById('mainNav');
+  const navLinks = document.querySelectorAll('.nav-link');
 
-  // Intro overlay
-  const brandBtn = document.getElementById("brandBtn");
-  const introOverlay = document.getElementById("introOverlay");
-  const closeIntro = document.getElementById("closeIntro");
-  const introPic = document.querySelector(".intro-pic");
-  const learnMoreBtn = document.getElementById("learnMoreBtn");
+  // Toggle mobile menu
+  mobileMenuToggle?.addEventListener('click', () => {
+    mobileMenuToggle.classList.toggle('active');
+    mainNav?.classList.toggle('active');
+    document.body.style.overflow = mainNav?.classList.contains('active') ? 'hidden' : '';
+  });
 
-  function openIntro(){
-    if (!introOverlay) return;
-    introOverlay.classList.add("show");
-    introOverlay.setAttribute("aria-hidden", "false");
+  // Close mobile menu when clicking nav links
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        mobileMenuToggle?.classList.remove('active');
+        mainNav?.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
 
-    // retrigger animation on the picture
-    if (introPic) {
-      introPic.classList.remove("animate");
-      void introPic.offsetWidth;
-      introPic.classList.add("animate");
-      introPic.addEventListener("animationend", function cleanup(){
-        introPic.classList.remove("animate");
-        introPic.removeEventListener("animationend", cleanup);
+  // Close mobile menu on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      mobileMenuToggle?.classList.remove('active');
+      mainNav?.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ========== Smooth Scrolling ==========
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#' || !href) return;
+      
+      e.preventDefault();
+      const target = document.querySelector(href);
+      
+      if (target) {
+        const headerOffset = 80;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // ========== Project Filtering ==========
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Update active state
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // Get filter value
+      const filterValue = button.getAttribute('data-filter');
+
+      // Filter projects
+      projectCards.forEach(card => {
+        if (filterValue === 'all') {
+          card.classList.remove('hidden');
+          card.style.animation = 'fadeIn 0.5s ease-out forwards';
+        } else {
+          const categories = card.getAttribute('data-category');
+          if (categories && categories.includes(filterValue)) {
+            card.classList.remove('hidden');
+            card.style.animation = 'fadeIn 0.5s ease-out forwards';
+          } else {
+            card.classList.add('hidden');
+          }
+        }
       });
-    }
-  }
-  function closeIntroFn(){
-    introOverlay?.classList.remove("show");
-    introOverlay?.setAttribute("aria-hidden", "true");
-  }
-
-  brandBtn?.addEventListener("click", openIntro);
-  closeIntro?.addEventListener("click", closeIntroFn);
-  introOverlay?.addEventListener("click", (e) => {
-    if (e.target === introOverlay) closeIntroFn();
+    });
   });
 
-  // Learn more button - scroll to skills-preview
-  learnMoreBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = document.getElementById("skills-preview");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      closeIntroFn();
-    } else {
-      window.location.href = "index.html#skills-preview";
-    }
-  });
-
-  // Skill modal + skill data
-  const skillModal = document.getElementById("skillModal");
-  const closeSkillModal = document.getElementById("closeSkillModal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalBody = document.getElementById("modalBody");
-  const modalImpact = document.getElementById("modalImpact");
-
-  const skillData = {
-    sql: {
-      title: "SQL",
-      body: "I use SQL to design analytics-ready tables, tune complex queries (joins, window functions), and build aggregates for reports.",
-      impact: "Where I used it: Devoir (MS SQL), Family Express (analytics), Capgemini/Vistex. Why: to create KPI datasets and speed up reporting queries; reduced run-time for several reports by rewriting heavy joins and adding targeted indexes."
-    },
-    python: {
-      title: "Python ETL",
-      body: "I build ETL scripts to ingest, clean, validate, and publish curated datasets for reporting and BI.",
-      impact: "Where: Devoir, Family Express. Why: automated ingestion and repeatable transformations, added tests and validation to reduce data incidents."
-    },
-    cloud: {
-      title: "Azure / AWS",
-      body: "Experience with Azure Data Factory & Blob, and AWS Glue & S3 for orchestrating batch ingestion and processing.",
-      impact: "Where: Devoir (ADF), Family Express (Glue). Why: moved jobs to managed cloud services for better scheduling, scaling and monitoring."
-    },
-    powerbi: {
-      title: "Power BI",
-      body: "I prepare model-ready datasets and KPI tables optimized for Power BI dashboards and stakeholder reporting.",
-      impact: "Where: Devoir/Family Express. Why: improved dashboard responsiveness and enabled self-serve reports for business users."
-    },
-    redis: {
-      title: "Redis",
-      body: "I use Redis to cache frequently-used analytics results and reduce latency for dashboards.",
-      impact: "Where: Family Express. Why: lower repeated query load and faster dashboard responses during peak hours."
-    },
-    langgraph: {
-      title: "LangGraph",
-      body: "I built workflows to generate structured AI insights from sales and analytics data.",
-      impact: "Where: Family Express. Why: automated summary insights and structured outputs for reporting and decision-making."
-    }
+  // ========== Intersection Observer for Animations ==========
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
   };
 
-  document.querySelectorAll(".skill-card").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const key = btn.getAttribute("data-skill");
-      const s = skillData[key] || {title:"Skill", body:"Details coming soon.", impact:""};
-      if (modalTitle) modalTitle.textContent = s.title;
-      if (modalBody) modalBody.textContent = s.body;
-      if (modalImpact) modalImpact.textContent = s.impact;
-      skillModal?.classList.add("show");
-      skillModal?.setAttribute("aria-hidden", "false");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements for animation
+  const animatedElements = document.querySelectorAll(
+    '.skill-category, .timeline-item, .project-card, .education-card, .about-card'
+  );
+  
+  animatedElements.forEach(el => observer.observe(el));
+
+  // ========== Navbar Background on Scroll ==========
+  const topbar = document.querySelector('.topbar');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    // Add shadow when scrolled
+    if (currentScroll > 10) {
+      topbar?.classList.add('scrolled');
+    } else {
+      topbar?.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
+  });
+
+  // ========== Brand Button Handler ==========
+  const brandBtn = document.getElementById('brandBtn');
+  
+  brandBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
   });
 
-  function closeSkill(){
-    skillModal?.classList.remove("show");
-    skillModal?.setAttribute("aria-hidden", "true");
-  }
-
-  closeSkillModal?.addEventListener("click", closeSkill);
-  skillModal?.addEventListener("click", (e) => {
-    if (e.target === skillModal) closeSkill();
-  });
-
-  // Contact form handling (Formspree XHR submission)
+  // ========== Contact Form Handler ==========
   const contactForm = document.getElementById('contactForm');
   const contactSuccess = document.getElementById('contactSuccess');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      const action = contactForm.getAttribute('action');
-      if (!action) return alert('Please configure the form action endpoint.');
-      const data = new FormData(contactForm);
-      fetch(action, {
+
+  contactForm?.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const action = this.getAttribute('action');
+    
+    // Check if form action is configured
+    if (!action || action.includes('YOUR_FORM_ID')) {
+      alert('Please configure the Formspree form action endpoint in the contact form.\n\nReplace "YOUR_FORM_ID" with your actual Formspree form ID.');
+      return;
+    }
+    
+    const formData = new FormData(this);
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn?.textContent;
+    
+    // Show loading state
+    if (submitBtn) {
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+    }
+    
+    try {
+      const response = await fetch(action, {
         method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          contactForm.reset();
-          if (contactSuccess) contactSuccess.style.display = 'block';
-        } else {
-          response.json().then(data => {
-            alert(data.error || 'There was an error sending the message.');
-          }).catch(()=> alert('There was an error sending the message.'));
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
         }
-      }).catch(()=> alert('Network error. Please try again later.'));
-    });
+      });
+      
+      if (response.ok) {
+        // Success
+        this.reset();
+        if (contactSuccess) {
+          contactSuccess.style.display = 'block';
+          setTimeout(() => {
+            contactSuccess.style.display = 'none';
+          }, 5000);
+        }
+      } else {
+        // Error
+        const data = await response.json();
+        throw new Error(data.error || 'Form submission failed');
+      }
+    } catch (error) {
+      alert('There was an error sending your message. Please try again or contact me directly via email.');
+      console.error('Form submission error:', error);
+    } finally {
+      // Reset button state
+      if (submitBtn) {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    }
+  });
+
+  // ========== Footer Year ==========
+  const yearElement = document.getElementById('year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
   }
 
-  // Optional: open intro once on first visit
-  const firstVisit = localStorage.getItem("firstVisitDone");
-  if (!firstVisit) {
-    setTimeout(() => openIntro(), 500);
-    localStorage.setItem("firstVisitDone", "yes");
+  // ========== Performance Optimization ==========
+  // Lazy load images
+  if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      img.src = img.dataset.src || img.src;
+    });
+  } else {
+    // Fallback for browsers that don't support lazy loading
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+    document.body.appendChild(script);
   }
+
+  // ========== Active Nav Link on Scroll ==========
+  const sections = document.querySelectorAll('section[id]');
+  
+  function setActiveNavLink() {
+    const scrollY = window.pageYOffset;
+    
+    sections.forEach(section => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 100;
+      const sectionId = section.getAttribute('id');
+      const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+      
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        navLink?.classList.add('active-link');
+      } else {
+        navLink?.classList.remove('active-link');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', setActiveNavLink);
+  setActiveNavLink(); // Call once on load
+
+  // ========== Keyboard Navigation ==========
+  document.addEventListener('keydown', (e) => {
+    // Escape key closes mobile menu
+    if (e.key === 'Escape' && mainNav?.classList.contains('active')) {
+      mobileMenuToggle?.classList.remove('active');
+      mainNav?.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ========== Console Message ==========
+  console.log('%c👋 Hi there!', 'color: #3b82f6; font-size: 20px; font-weight: bold;');
+  console.log('%cLooking for a Data Engineer? Let\'s connect!', 'color: #94a3b8; font-size: 14px;');
+  console.log('%cEmail: saikrishnarao1803@gmail.com', 'color: #10b981; font-size: 14px;');
+
 })();

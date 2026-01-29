@@ -1,0 +1,11 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#0f172a"/>
+  <rect x="50" y="50" width="500" height="250" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <circle cx="70" cy="70" r="6" fill="#ef4444"/>
+  <circle cx="90" cy="70" r="6" fill="#f59e0b"/>
+  <circle cx="110" cy="70" r="6" fill="#10b981"/>
+  <rect x="70" y="100" width="200" height="12" rx="4" fill="#334155"/>
+  <rect x="70" y="130" width="150" height="12" rx="4" fill="#334155"/>
+  <rect x="70" y="160" width="180" height="12" rx="4" fill="#334155"/>
+  <text x="300" y="360" font-family="Arial" font-size="18" fill="#64748b" text-anchor="middle">Project Screenshot Placeholder</text>
+</svg>
